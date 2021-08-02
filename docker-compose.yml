@@ -10,7 +10,7 @@ services:
         stdin_open: true
         tty: true
         restart: unless-stopped
-        command: bash -c "service ssh restart"
+        command: bash -c "service ssh restart" && /bin/bash
 
     Active_RM:
         container_name: Active_RM
@@ -22,7 +22,7 @@ services:
         stdin_open: true
         tty: true
         restart: unless-stopped
-        command: bash -c "service ssh restart"
+        command: bash -c "service ssh restart" && /bin/bash
         
     
     HistroySever:
@@ -35,7 +35,7 @@ services:
         stdin_open: true
         tty: true
         restart: unless-stopped
-        command: bash -c "service ssh restart"
+        command: bash -c "service ssh restart" && /bin/bash
 
     Worker1:
         container_name: Worker1
@@ -45,7 +45,7 @@ services:
         stdin_open: true
         tty: true
         restart: unless-stopped
-        command: bash -c "service ssh restart"
+        command: bash -c "service ssh restart" && /bin/bash
 
     Worker2:
         container_name: Worker2
@@ -55,7 +55,7 @@ services:
         stdin_open: true
         tty: true
         restart: unless-stopped
-        command: bash -c "service ssh restart"
+        command: bash -c "service ssh restart" && /bin/bash
 
     Worker3:
         container_name: Worker3
@@ -65,7 +65,7 @@ services:
         stdin_open: true
         tty: true
         restart: unless-stopped
-        command: bash -c "service ssh restart"
+        command: bash -c "service ssh restart" && /bin/bash
 
     Worker4:
         container_name: Worker4
@@ -75,7 +75,7 @@ services:
         stdin_open: true
         tty: true
         restart: unless-stopped
-        command: bash -c "service ssh restart"
+        command: bash -c "service ssh restart" && /bin/bash
 
     Worker5:
         container_name: Worker5
@@ -85,7 +85,7 @@ services:
         stdin_open: true
         tty: true
         restart: unless-stopped
-        command: bash -c "service ssh restart"
+        command: bash -c "service ssh restart" && /bin/bash
 
     Worker6:
         container_name: Worker6
@@ -95,7 +95,7 @@ services:
         stdin_open: true
         tty: true
         restart: unless-stopped
-        command: bash -c "service ssh restart"
+        command: bash -c "service ssh restart" && /bin/bash
 
 networks:
     Hadoop_Cluster:
