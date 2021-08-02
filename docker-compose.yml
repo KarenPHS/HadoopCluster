@@ -3,9 +3,9 @@ services:
     Active_NN:
         container_name: Active_NN
         build:
-        image: hsuan8169/Active_NN
             context: ./Active_NN
             dockerfile: Dockerfile
+        image: hsuan8169/Active_NN
         networks:
             - Hadoop_Cluster
         ports:
@@ -17,9 +17,9 @@ services:
     Active_RM:
         container_name: Active_RM
         build:
-        image: hsuan8169/Active_RM
             context: ./Active_RM
             dockerfile: Dockerfile
+        image: hsuan8169/Active_RM
         networks:
             - Hadoop_Cluster
         ports:
@@ -31,9 +31,9 @@ services:
     HistroySever:
         container_name: HistroySever
         build:
-        image: hsuan8169/HistroySever
             context: ./HistroySever
             dockerfile: Dockerfile
+        image: hsuan8169/HistroySever
         networks:
             - Hadoop_Cluster
         ports:
@@ -45,9 +45,9 @@ services:
     Worker1:
         container_name: Worker1
         build:
-        image: hsuan8169/Workers
             context: ./Workerfile
             dockerfile: Dockerfile
+        image: hsuan8169/Workers
         networks:
             - Hadoop_Cluster
         command: bash -c "service ssh restart"
