@@ -45,7 +45,7 @@ services:
     Worker1:
         container_name: Worker1
         build:
-            context: ./Workerfile
+            context: ./Worker1
             dockerfile: Dockerfile
         image: hsuan8169/Workers
         networks:
