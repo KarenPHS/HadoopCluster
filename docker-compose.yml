@@ -3,8 +3,8 @@ services:
     Active_NN:
         container_name: Active_NN
         build:
+        image: hsuan8169/Active_NN
             context: ./Active_NN
-            image: hsuan8169/Active_NN
             dockerfile: Dockerfile
         networks:
             - Hadoop_Cluster
@@ -17,8 +17,8 @@ services:
     Active_RM:
         container_name: Active_RM
         build:
+        image: hsuan8169/Active_RM
             context: ./Active_RM
-            image: hsuan8169/Active_RM
             dockerfile: Dockerfile
         networks:
             - Hadoop_Cluster
@@ -31,8 +31,8 @@ services:
     HistroySever:
         container_name: HistroySever
         build:
+        image: hsuan8169/HistroySever
             context: ./HistroySever
-            image: hsuan8169/HistroySever
             dockerfile: Dockerfile
         networks:
             - Hadoop_Cluster
@@ -45,8 +45,8 @@ services:
     Worker1:
         container_name: Worker1
         build:
+        image: hsuan8169/Workers
             context: ./Workerfile
-            image: hsuan8169/Workers
             dockerfile: Dockerfile
         networks:
             - Hadoop_Cluster
