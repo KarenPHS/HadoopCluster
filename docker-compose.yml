@@ -29,11 +29,11 @@ services:
         tty: true
     
     HistroySever:
-        container_name: HistroyServer
+        container_name: HistoryServer
         build:
-            context: ./HistroySever
+            context: ./HistorySever
             dockerfile: Dockerfile
-        image: hsuan8169/HistroySever
+        image: hsuan8169/HistorySever
         networks:
             - Hadoop_Cluster
         ports:
