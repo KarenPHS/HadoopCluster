@@ -2,9 +2,6 @@ version: "3"
 services:
     Active_NN:
         container_name: Active_NN
-        build:
-            context: ./Active_NN
-            dockerfile: Dockerfile
         image: hsuan8169/active_nn
         networks:
             - Hadoop_Cluster
@@ -17,9 +14,6 @@ services:
 
     Active_RM:
         container_name: Active_RM
-        build:
-            context: ./Active_RM
-            dockerfile: Dockerfile
         image: hsuan8169/active_rm
         networks:
             - Hadoop_Cluster
@@ -33,9 +27,6 @@ services:
     
     HistroySever:
         container_name: HistoryServer
-        build:
-            context: ./HistoryServer
-            dockerfile: Dockerfile
         image: hsuan8169/historyserver
         networks:
             - Hadoop_Cluster
@@ -48,9 +39,6 @@ services:
 
     Worker1:
         container_name: Worker1
-        build:
-            context: ./Worker1
-            dockerfile: Dockerfile
         image: hsuan8169/workers
         networks:
             - Hadoop_Cluster
