@@ -23,7 +23,7 @@ echo "root:hadoop" | chpasswd
 # Download  Hadoop
 RUN cd /usr/local && wget -O ./hadoop.tar.gz https://downloads.apache.org/hadoop/common/hadoop-3.3.1/hadoop-3.3.1.tar.gz && tar -xvf hadoop.tar.gz && chown root: -R /usr/local/hadoop-3.3.1 && mv hadoop-3.3.1 hadoop
 
-RUN echo -e '# JAVA set environment variables\n\
+RUN echo -e $'# JAVA set environment variables\n\
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64\n\
 # Set HADOOP_HOME\n\
 HADOOP_HOME=/usr/local/hadoop\n\
@@ -38,7 +38,7 @@ RUN sed -i '59s@.*@HADOOP_HOME=/usr/local/hadoop@g' /usr/local/hadoop/etc/hadoop
 RUN sed -i '69s@.*@HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop@g' /usr/local/hadoop/etc/hadoop/hadoop-env.sh
 
 # Set workers
-RUN echo -e 'Worker1\n\
+RUN echo -e $'Worker1\n\
 Worker2\n\
 Worker3\n\
 Worker4\n\

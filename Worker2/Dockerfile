@@ -23,13 +23,13 @@ echo "root:hadoop" | chpasswd
 # Download  Hadoop
 RUN cd /usr/local && wget -O ./hadoop.tar.gz https://downloads.apache.org/hadoop/common/hadoop-3.3.1/hadoop-3.3.1.tar.gz && tar -xvf hadoop.tar.gz && chown root: -R /usr/local/hadoop-3.3.1 && mv hadoop-3.3.1 hadoop
 
-RUN echo -e '# JAVA set environment variables \n\
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 \n\
-# Set HADOOP_HOME \n\
-HADOOP_HOME=/usr/local/hadoop \n\
-# Set HADOOP_MAPRED_HOME \n\
-HADOOP_MAPRED_HOME=${HADOOP_HOME} \n\
-# Add Hadoop bin and sbin directory to PATH \n\
+RUN echo -e '# JAVA set environment variables\n\
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64\n\
+# Set HADOOP_HOME\n\
+HADOOP_HOME=/usr/local/hadoop\n\
+# Set HADOOP_MAPRED_HOME\n\
+HADOOP_MAPRED_HOME=${HADOOP_HOME}\n\
+# Add Hadoop bin and sbin directory to PATH\n\
 PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin' >> /root/.bashrc && source /root/.bashrc
 
 # Set hadoop-env.sh
@@ -38,11 +38,11 @@ RUN sed -i '59s@.*@HADOOP_HOME=/usr/local/hadoop@g' /usr/local/hadoop/etc/hadoop
 RUN sed -i '69s@.*@HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop@g' /usr/local/hadoop/etc/hadoop/hadoop-env.sh
 
 # Set workers
-RUN echo -e 'Worker1
-Worker2
-Worker3
-Worker4
-Worker5
+RUN echo -e 'Worker1\n\
+Worker2\n\
+Worker3\n\
+Worker4\n\
+Worker5\n\
 Worker6' >> /usr/local/hadoop/etc/hadoop/workers 
 
 # Set core-site.xml, mapred-site.xml, yarn-site.xml, hdfs-site.xml
