@@ -9,7 +9,6 @@ services:
             - 9870:9870
         stdin_open: true
         tty: true
-        restart: unless-stopped
         command: bash -c "service ssh restart" && /bin/bash
 
     Active_RM:
@@ -21,7 +20,6 @@ services:
             - 8088:8088
         stdin_open: true
         tty: true
-        restart: unless-stopped
         command: bash -c "service ssh restart" && /bin/bash
         
     
@@ -34,7 +32,6 @@ services:
             - 19888:19888
         stdin_open: true
         tty: true
-        restart: unless-stopped
         command: bash -c "service ssh restart" && /bin/bash
 
     Worker1:
@@ -44,7 +41,6 @@ services:
             - Hadoop_Cluster
         stdin_open: true
         tty: true
-        restart: unless-stopped
         command: bash -c "service ssh restart" && /bin/bash
 
     Worker2:
@@ -54,7 +50,6 @@ services:
             - Hadoop_Cluster
         stdin_open: true
         tty: true
-        restart: unless-stopped
         command: bash -c "service ssh restart" && /bin/bash
 
     Worker3:
@@ -64,7 +59,6 @@ services:
             - Hadoop_Cluster
         stdin_open: true
         tty: true
-        restart: unless-stopped
         command: bash -c "service ssh restart" && /bin/bash
 
     Worker4:
@@ -74,7 +68,6 @@ services:
             - Hadoop_Cluster
         stdin_open: true
         tty: true
-        restart: unless-stopped
         command: bash -c "service ssh restart" && /bin/bash
 
     Worker5:
@@ -84,7 +77,6 @@ services:
             - Hadoop_Cluster
         stdin_open: true
         tty: true
-        restart: unless-stopped
         command: bash -c "service ssh restart" && /bin/bash
 
     Worker6:
@@ -94,7 +86,6 @@ services:
             - Hadoop_Cluster
         stdin_open: true
         tty: true
-        restart: unless-stopped
         command: bash -c "service ssh restart" && /bin/bash
 
 networks:
