@@ -7,7 +7,7 @@ services:
             - Hadoop_Cluster
         ports:
             - 9870:9870
-        command: bash -c "service ssh restart && /bin/bash"
+        command: bash -c "service ssh restart && /usr/bin/yes"
 
     Active_RM:
         container_name: Active_RM
@@ -16,7 +16,7 @@ services:
             - Hadoop_Cluster
         ports:
             - 8088:8088
-        command: bash -c "service ssh restart && /bin/bash"
+        command: bash -c "service ssh restart && /usr/bin/yes"
         
     
     HistroySever:
@@ -26,49 +26,49 @@ services:
             - Hadoop_Cluster
         ports:
             - 19888:19888
-        command: bash -c "service ssh restart && /bin/bash"
+        command: bash -c "service ssh restart && /usr/bin/yes"
 
     Worker1:
         container_name: Worker1
         image: hsuan8169/workers
         networks:
             - Hadoop_Cluster
-        command: bash -c "service ssh restart && /bin/bash"
+        command: bash -c "service ssh restart && /usr/bin/yes"
 
     Worker2:
         container_name: Worker2
         image: hsuan8169/workers
         networks:
             - Hadoop_Cluster
-        command: bash -c "service ssh restart && /bin/bash"
+        command: bash -c "service ssh restart && /usr/bin/yes"
 
     Worker3:
         container_name: Worker3
         image: hsuan8169/workers
         networks:
             - Hadoop_Cluster
-        command: bash -c "service ssh restart && /bin/bash"
+        command: bash -c "service ssh restart && /usr/bin/yes"
 
     Worker4:
         container_name: Worker4
         image: hsuan8169/workers
         networks:
             - Hadoop_Cluster
-        command: bash -c "service ssh restart && /bin/bash"
+        command: bash -c "service ssh restart && /usr/bin/yes"
 
     Worker5:
         container_name: Worker5
         image: hsuan8169/workers
         networks:
             - Hadoop_Cluster
-        command: bash -c "service ssh restart && /bin/bash"
+        command: bash -c "service ssh restart && /usr/bin/yes"
 
     Worker6:
         container_name: Worker6
         image: hsuan8169/workers
         networks:
             - Hadoop_Cluster
-        command: bash -c "service ssh restart && /bin/bash"
+        command: bash -c "service ssh restart && /usr/bin/yes"
 
 networks:
     Hadoop_Cluster:
