@@ -7,8 +7,6 @@ services:
             - Hadoop_Cluster
         ports:
             - 9870:9870
-        stdin_open: true
-        tty: true
         command: bash -c "service ssh restart" && /bin/bash/yes
 
     Active_RM:
@@ -18,8 +16,6 @@ services:
             - Hadoop_Cluster
         ports:
             - 8088:8088
-        stdin_open: true
-        tty: true
         command: bash -c "service ssh restart" && /bin/bash/yes
         
     
@@ -30,8 +26,6 @@ services:
             - Hadoop_Cluster
         ports:
             - 19888:19888
-        stdin_open: true
-        tty: true
         command: bash -c "service ssh restart" && /bin/bash/yes
 
     Worker1:
@@ -39,8 +33,6 @@ services:
         image: hsuan8169/workers
         networks:
             - Hadoop_Cluster
-        stdin_open: true
-        tty: true
         command: bash -c "service ssh restart" && /bin/bash/yes
 
     Worker2:
@@ -48,8 +40,6 @@ services:
         image: hsuan8169/workers
         networks:
             - Hadoop_Cluster
-        stdin_open: true
-        tty: true
         command: bash -c "service ssh restart" && /bin/bash/yes
 
     Worker3:
@@ -57,8 +47,6 @@ services:
         image: hsuan8169/workers
         networks:
             - Hadoop_Cluster
-        stdin_open: true
-        tty: true
         command: bash -c "service ssh restart" && /bin/bash/yes
 
     Worker4:
@@ -66,8 +54,6 @@ services:
         image: hsuan8169/workers
         networks:
             - Hadoop_Cluster
-        stdin_open: true
-        tty: true
         command: bash -c "service ssh restart" && /bin/bash/yes
 
     Worker5:
@@ -75,8 +61,6 @@ services:
         image: hsuan8169/workers
         networks:
             - Hadoop_Cluster
-        stdin_open: true
-        tty: true
         command: bash -c "service ssh restart" && /bin/bash/yes
 
     Worker6:
@@ -84,8 +68,6 @@ services:
         image: hsuan8169/workers
         networks:
             - Hadoop_Cluster
-        stdin_open: true
-        tty: true
         command: bash -c "service ssh restart" && /bin/bash/yes
 
 networks:
