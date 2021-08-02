@@ -2,103 +2,103 @@ version: "3"
 services:
     Active_NN:
         container_name: Active_NN
-		build:
+        build:
             context: ./Active_NN
             image: hsuan8169/Active_NN
             dockerfile: Dockerfile
-		networks:
+        networks:
             - Hadoop_Cluster
         ports:
             - 9870:9870
-		command: bash -c "service ssh restart"
+        command: bash -c "service ssh restart"
         stdin_open: true
         tty: true
 
     Active_RM:
         container_name: Active_RM
-		build:
+        build:
             context: ./Active_RM
             image: hsuan8169/Active_RM
             dockerfile: Dockerfile
-		networks:
+        networks:
             - Hadoop_Cluster
         ports:
             - 8088:8088
-		command: bash -c "service ssh restart"
+        command: bash -c "service ssh restart"
         stdin_open: true
         tty: true
     
     HistroySever:
         container_name: HistroySever
-		build:
+        build:
             context: ./HistroySever
             image: hsuan8169/HistroySever
             dockerfile: Dockerfile
-		networks:
+        networks:
             - Hadoop_Cluster
         ports:
             - 19888:19888
-		command: bash -c "service ssh restart"
+        command: bash -c "service ssh restart"
         stdin_open: true
         tty: true
 
     Worker1:
         container_name: Worker1
-		build:
+        build:
             context: ./Workerfile
             image: hsuan8169/Workers
             dockerfile: Dockerfile
-		networks:
+        networks:
             - Hadoop_Cluster
-		command: bash -c "service ssh restart"
+        command: bash -c "service ssh restart"
         stdin_open: true
         tty: true
 
     Worker2:
         container_name: Worker2
-		image: hsuan8169/Workers
-		networks:
+        image: hsuan8169/Workers
+        networks:
             - Hadoop_Cluster
-		command: bash -c "service ssh restart"
+        command: bash -c "service ssh restart"
         stdin_open: true
         tty: true
 
     Worker3:
         container_name: Worker3
-		image: hsuan8169/Workers
-		networks:
+        image: hsuan8169/Workers
+        networks:
             - Hadoop_Cluster
-		command: bash -c "service ssh restart"
+        command: bash -c "service ssh restart"
         stdin_open: true
         tty: true
 
     Worker4:
         container_name: Worker4
-		image: hsuan8169/Workers
-		networks:
+        image: hsuan8169/Workers
+        networks:
             - Hadoop_Cluster
-		command: bash -c "service ssh restart"
+        command: bash -c "service ssh restart"
         stdin_open: true
         tty: true
 
     Worker5:
         container_name: Worker5
-		image: hsuan8169/Workers
-		networks:
+        image: hsuan8169/Workers
+        networks:
             - Hadoop_Cluster
-		command: bash -c "service ssh restart"
+        command: bash -c "service ssh restart"
         stdin_open: true
         tty: true
-	
+    
     Worker6:
         container_name: Worker6
-		image: hsuan8169/Workers
-		networks:
+        image: hsuan8169/Workers
+        networks:
             - Hadoop_Cluster
-		command: bash -c "service ssh restart"
+        command: bash -c "service ssh restart"
         stdin_open: true
         tty: true
 
 networks:
-	Hadoop_Cluster:
-		driver: bridge
+    Hadoop_Cluster:
+        driver: bridge
