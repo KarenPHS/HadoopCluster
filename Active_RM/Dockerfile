@@ -1,5 +1,5 @@
 FROM ubuntu:20.04
-
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 MAINTAINER Hsuan hsuan8169@gmail.com
 
 USER root
