@@ -29,7 +29,7 @@ services:
         tty: true
     
     HistroySever:
-        container_name: HistroySever
+        container_name: HistroyServer
         build:
             context: ./HistroySever
             dockerfile: Dockerfile
