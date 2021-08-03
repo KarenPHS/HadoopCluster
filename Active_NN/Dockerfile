@@ -38,7 +38,9 @@ RUN sed -i '59s@.*@HADOOP_HOME=/usr/local/hadoop@g' /usr/local/hadoop/etc/hadoop
 RUN sed -i '69s@.*@HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop@g' /usr/local/hadoop/etc/hadoop/hadoop-env.sh
 
 # Set User in hadoop-env.sh
-RUN echo -e $"export HDFS_DATANODE_USER=root\n\
+RUN echo -e $"\n\
+# Set User\n\
+export HDFS_DATANODE_USER=root\n\
 export HADOOP_SECURE_DN_USER=hdfs\n\
 export HDFS_NAMENODE_USER=root\n\
 export HDFS_SECONDARYNAMENODE_USER=root\n\
