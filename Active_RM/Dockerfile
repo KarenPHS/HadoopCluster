@@ -63,6 +63,6 @@ COPY ./core-site.xml /usr/local/hadoop/etc/hadoop/hdfs-site.xml
 
 # Start start-dfs.sh
 RUN echo -e $'export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true -Djava.security.krb5.realm= -Djava.security.krb5.kdc="' >> /usr/local/hadoop/etc/hadoop/hadoop-env.sh
-RUN chmod -R root:root tmp/
+RUN chown -R root:root tmp/
 
 EXPOSE 22 8088 8030 8031 8032 8033
