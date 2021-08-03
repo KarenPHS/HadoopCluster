@@ -17,9 +17,6 @@
 <!-- Put site-specific property overrides in this file. -->
 
 <configuration>
-</configuration>
-
-<configuration>
   <property>
       <name>hadoop.tmp.dir</name>
       <value>/home/hadoop/data</value>
@@ -28,7 +25,7 @@
 
   <property>
       <name>fs.defaultFS</name>
-      <value>hdfs://Active_NN:9000</value>
+      <value>hdfs://Active_NN</value>
       <description>Use HDFS as file storage engine</description>
   </property>
 </configuration>
