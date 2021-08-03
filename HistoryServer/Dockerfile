@@ -63,7 +63,6 @@ COPY ./core-site.xml /usr/local/hadoop/etc/hadoop/hdfs-site.xml
 
 # Start start-dfs.sh
 RUN chmod -R 777 tmp/
-RUN echo -e $'export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true -Djava.security.krb5.realm= -Djava.security.krb5.kdc="
-' >> /usr/local/hadoop/etc/hadoop/hadoop-env.sh
+RUN echo -e $'export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true -Djava.security.krb5.realm= -Djava.security.krb5.kdc="' >> /usr/local/hadoop/etc/hadoop/hadoop-env.sh
 
 EXPOSE 22 19888 10020
