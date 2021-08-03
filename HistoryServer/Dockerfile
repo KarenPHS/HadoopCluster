@@ -48,12 +48,12 @@ RUN echo -e $'export YARN_RESOURCEMANAGER_USER=root' >> /usr/local/hadoop/etc/ha
 RUN echo -e $'export YARN_NODEMANAGER_USER=root' >> /usr/local/hadoop/etc/hadoop/hadoop-env.sh
 
 # Set workers
-RUN echo -e $'Worker1\n\
-Worker2\n\
-Worker3\n\
-Worker4\n\
-Worker5\n\
-Worker6' >> /usr/local/hadoop/etc/hadoop/workers 
+RUN echo -e $'worker1\n\
+worker2\n\
+worker3\n\
+worker4\n\
+worker5\n\
+worker6' >> /usr/local/hadoop/etc/hadoop/workers
 
 # Set core-site.xml, mapred-site.xml, yarn-site.xml, hdfs-site.xml
 COPY ./core-site.xml /usr/local/hadoop/etc/hadoop/core-site.xml

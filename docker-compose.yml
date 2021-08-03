@@ -1,91 +1,109 @@
-version: "3"
+version: "3.0"
 services:
     Active_NN:
-        container_name: Active_NN
+        container_name: active_nn
         image: hsuan8169/active_nn
         user: root
         privileged: true
         networks:
             - Hadoop_Cluster
+        dns:
+            hostname: active_nn
         ports:
             - 9870:9870
         command: bash -c "service ssh restart && /usr/bin/yes"
 
     Active_RM:
-        container_name: Active_RM
+        container_name: active_rm
         image: hsuan8169/active_rm
         user: root
         privileged: true
         networks:
             - Hadoop_Cluster
+        dns:
+            hostname: active_rm
         ports:
             - 8088:8088
         command: bash -c "service ssh restart && /usr/bin/yes"
         
     
     HistorySever:
-        container_name: HistoryServer
+        container_name: historyserver
         image: hsuan8169/historyserver
         user: root
         privileged: true
         networks:
             - Hadoop_Cluster
+        dns:
+            hostname: historyserver
         ports:
             - 19888:19888
         command: bash -c "service ssh restart && /usr/bin/yes"
 
     Worker1:
-        container_name: Worker1
+        container_name: worker1
         image: hsuan8169/workers
         user: root
         privileged: true
         networks:
             - Hadoop_Cluster
+        dns:
+            hostname: worker1
         command: bash -c "service ssh restart && /usr/bin/yes"
 
     Worker2:
-        container_name: Worker2
+        container_name: worker2
         image: hsuan8169/workers
         user: root
         privileged: true
         networks:
             - Hadoop_Cluster
+        dns:
+            hostname: worker2
         command: bash -c "service ssh restart && /usr/bin/yes"
 
     Worker3:
-        container_name: Worker3
+        container_name: worker3
         image: hsuan8169/workers
         user: root
         privileged: true
         networks:
             - Hadoop_Cluster
+        dns:
+            hostname: worker3
         command: bash -c "service ssh restart && /usr/bin/yes"
 
     Worker4:
-        container_name: Worker4
+        container_name: worker4
         image: hsuan8169/workers
         user: root
         privileged: true
         networks:
             - Hadoop_Cluster
+        dns:
+            hostname: worker4
         command: bash -c "service ssh restart && /usr/bin/yes"
 
     Worker5:
-        container_name: Worker5
+        container_name: worker5
         image: hsuan8169/workers
         user: root
         privileged: true
         networks:
             - Hadoop_Cluster
+        dns:
+            hostname: worker5
         command: bash -c "service ssh restart && /usr/bin/yes"
 
     Worker6:
-        container_name: Worker6
+        container_name: worker6
         image: hsuan8169/workers
         user: root
         privileged: true
         networks:
             - Hadoop_Cluster
+        dns:
+            hostname: worker6
         command: bash -c "service ssh restart && /usr/bin/yes"
 
 networks:
