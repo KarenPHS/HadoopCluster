@@ -18,8 +18,24 @@
 
 <configuration>
   <property>
+      <name>dfs.datanode.data.dir</name>
+      <value>file:///home/hadoop/data/datanode</value>
+  </property>
+  <property>
+        <name>dfs.namenode.name.dir</name>
+        <value>file:///home/hadoop/data/namenode</value>
+  </property>
+  <property>
+        <name>dfs.namenode.http-address</name>
+        <value>Active_NN:50070</value>
+  </property>
+  <property>
+        <name>dfs.namenode.secondary.http-address</name>
+        <value>Active_NN:50090</value>
+  </property>
+  <!-- <property>
          <name>dfs.permissions.superusergroup</name>
          <value>hadoop</value>
          <description>The name of the group of super-users. The value should be a single group name.</description>
-  </property>
+  </property> -->
 </configuration>

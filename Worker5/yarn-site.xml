@@ -20,6 +20,22 @@
          <value>mapreduce_shuffle</value>
   </property>
   <property>
+          <name>yarn.nodemanager.aux-services.mapreduce_shuffle.class</name>
+          <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+  </property>
+  <property>
+          <name>yarn.resourcemanager.resource-tracker.address</name>
+          <value>Active_RM:8025</value>
+  </property>
+  <property>
+          <name>yarn.resourcemanager.scheduler.address</name>
+          <value>Active_RM:8030</value>
+  </property>
+  <property>
+           <name>yarn.resourcemanager.address</name>
+           <value>Active_RM:8050</value>
+  </property>
+  <property>
       <name>yarn.nodemanager.env-whitelist</name>
       <value>JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HADOOP_CONF_DIR,CLASSPATH_PREPEND_DISTCACHE,HADOOP_YARN_HOME,HADOOP_MAPRED_HOME</value>
   </property>

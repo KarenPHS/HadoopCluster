@@ -18,17 +18,13 @@
 
 <configuration>
   <property>
-      <name>dfs.replication</name>
-      <value>1</value>
-   </property>
-  <property>
       <name>hadoop.tmp.dir</name>
       <value>/home/hadoop/data</value>
       <description>Temporary Directory.</description>
   </property>
   <property>
       <name>fs.defaultFS</name>
-      <value>hdfs://Active_NN</value>
+      <value>hdfs://Active_NN:9000</value>
       <description>Use HDFS as file storage engine</description>
   </property>
 </configuration>
