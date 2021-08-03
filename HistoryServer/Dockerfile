@@ -36,12 +36,13 @@ PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin' >> /root/.bashrc && source /root/
 RUN sed -i '55s@.*@JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64@g' /usr/local/hadoop/etc/hadoop/hadoop-env.sh
 RUN sed -i '59s@.*@HADOOP_HOME=/usr/local/hadoop@g' /usr/local/hadoop/etc/hadoop/hadoop-env.sh
 RUN sed -i '69s@.*@HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop@g' /usr/local/hadoop/etc/hadoop/hadoop-env.sh
+
 # Set User in hadoop-env.sh
-RUN echo -e $'export HDFS_DATANODE_USER=root\n\
+RUN echo -e $"export HDFS_DATANODE_USER=root\n\
 export HADOOP_SECURE_DN_USER=hdfs\n\
 export HDFS_NAMENODE_USER=root\n\
 export HDFS_SECONDARYNAMENODE_USER=root\n\
-export YARN_RESOURCEMANAGER_USER=root\n\' >> /usr/local/hadoop/etc/hadoop/hadoop-env.sh
+export YARN_RESOURCEMANAGER_USER=root" >> /usr/local/hadoop/etc/hadoop/hadoop-env.sh
 
 # Set workers
 RUN echo -e $'Worker1\n\
