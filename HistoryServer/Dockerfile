@@ -42,6 +42,7 @@ RUN sed -i '319s@.*@export HDFS_DATANODE_SECURE_USER=root@g' /usr/local/hadoop/e
 RUN sed -i '348s@.*@export HDFS_NFS3_SECURE_USER=root@g' /usr/local/hadoop/etc/hadoop/hadoop-env.sh
 RUN sed -i '418s@.*@export HDFS_NAMENODE_USER=root@g' /usr/local/hadoop/etc/hadoop/hadoop-env.sh
 RUN sed -i '426s@.*@export HADOOP_REGISTRYDNS_SECURE_USER=root@g' /usr/local/hadoop/etc/hadoop/hadoop-env.sh
+RUN echo -e $'export HDFS_SECONDARYNAMENODE_USER=root' >> /usr/local/hadoop/etc/hadoop/hadoop-env.sh
 
 # Set workers
 RUN echo -e $'Worker1\n\
@@ -56,5 +57,8 @@ COPY ./core-site.xml /usr/local/hadoop/etc/hadoop/core-site.xml
 COPY ./core-site.xml /usr/local/hadoop/etc/hadoop/mapred-site.xml
 COPY ./core-site.xml /usr/local/hadoop/etc/hadoop/yarn-site.xml
 COPY ./core-site.xml /usr/local/hadoop/etc/hadoop/hdfs-site.xml
+
+# Start start-dfs.sh
+RUN chmod -R 777 tmp/
 
 EXPOSE 22 19888 10020
