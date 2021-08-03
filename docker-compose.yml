@@ -19,7 +19,7 @@ services:
         command: bash -c "service ssh restart && /usr/bin/yes"
         
     
-    HistroySever:
+    HistorySever:
         container_name: HistoryServer
         image: hsuan8169/historyserver
         networks:

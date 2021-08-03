@@ -28,7 +28,7 @@
 
   <property>
       <name>fs.defaultFS</name>
-      <value>hdfs://Active_NameNode</value>
+      <value>hdfs://Active_NN</value>
       <description>Use HDFS as file storage engine</description>
   </property>
 </configuration>
