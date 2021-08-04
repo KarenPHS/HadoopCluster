@@ -27,11 +27,11 @@
   </property>
   <property>
         <name>dfs.namenode.http-address</name>
-        <value>Active_NN:50070</value>
+        <value>active-nn:50070</value>
   </property>
   <property>
         <name>dfs.namenode.secondary.http-address</name>
-        <value>Active_NN:50090</value>
+        <value>active-nn:50090</value>
   </property>
   <!-- <property>
          <name>dfs.permissions.superusergroup</name>

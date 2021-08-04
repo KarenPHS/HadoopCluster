@@ -7,7 +7,7 @@ services:
         privileged: true
         networks:
             - Hadoop_Cluster
-        hostname: active_nn
+        hostname: active-nn
         ports:
             - 9870:9870
         command: bash -c "service ssh restart && /usr/bin/yes"
@@ -19,7 +19,7 @@ services:
         privileged: true
         networks:
             - Hadoop_Cluster
-        hostname: active_rm
+        hostname: active-rm
         ports:
             - 8088:8088
         command: bash -c "service ssh restart && /usr/bin/yes"
