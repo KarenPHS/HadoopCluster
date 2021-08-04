@@ -64,4 +64,10 @@ COPY ./core-site.xml /usr/local/hadoop/etc/hadoop/hdfs-site.xml
 # Start start-dfs.sh
 RUN echo -e $'export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true -Djava.security.krb5.realm= -Djava.security.krb5.kdc="' >> /usr/local/hadoop/etc/hadoop/hadoop-env.sh
 
+# Remove downloaded hadoop file
+RUN rm /usr/local/hadoop.tar.gz
+
 EXPOSE 22 9868 9870 8020 9000
+
+# Testing tools
+RUN apt install -y lsof telnet telnet-server

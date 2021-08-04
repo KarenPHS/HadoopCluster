@@ -24,7 +24,7 @@
   </property>
   <property>
       <name>fs.defaultFS</name>
-      <value>hdfs://active-nn:9000</value>
+      <value>hdfs://active-nn</value>
       <description>Use HDFS as file storage engine</description>
   </property>
 </configuration>

@@ -64,4 +64,7 @@ COPY ./core-site.xml /usr/local/hadoop/etc/hadoop/hdfs-site.xml
 # Start start-dfs.sh
 RUN echo -e $'export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true -Djava.security.krb5.realm= -Djava.security.krb5.kdc="' >> /usr/local/hadoop/etc/hadoop/hadoop-env.sh
 
+# Remove downloaded hadoop file
+RUN rm /usr/local/hadoop.tar.gz
+
 EXPOSE 22 8088 8030 8031 8032 8033 8050 8025
