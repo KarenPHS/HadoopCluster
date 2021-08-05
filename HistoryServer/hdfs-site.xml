@@ -43,7 +43,7 @@
    </property>
    <property>
      <name>dfs.namenode.shared.edits.dir</name>
-     <value>qjournal://journalnode1:8485;journalnode2:8485;journalnode3:8485/nncluster</value>
+     <value>journalnode1:8485;journalnode2:8485;journalnode3:8485</value>
    </property>
    <property>
      <name>dfs.journalnode.edits.dir</name>
