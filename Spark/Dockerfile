@@ -87,7 +87,7 @@ COPY ./core-site.xml /usr/local/hadoop/etc/hadoop/core-site.xml
 COPY ./mapred-site.xml /usr/local/hadoop/etc/hadoop/mapred-site.xml
 COPY ./yarn-site.xml /usr/local/hadoop/etc/hadoop/yarn-site.xml
 COPY ./hdfs-site.xml /usr/local/hadoop/etc/hadoop/hdfs-site.xml
-COPY ./pyspark.sh /usr/local/hadoop/pyspark.sh
+COPY ./pysparklab.sh /usr/local/hadoop/pysparklab.sh
 COPY ./sparkcodes /usr/local/hadoop/sparkcodes
 
 # Start start-dfs.sh
