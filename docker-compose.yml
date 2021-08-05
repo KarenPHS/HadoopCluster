@@ -100,9 +100,4 @@ services:
 networks:
     Hadoop_Cluster:
         driver: bridge
-        
-volumes:
-    namenode1:
-    namenode2:
-    namenode3:
     
