@@ -30,5 +30,9 @@
   <property>
       <name>ha.zookeeper.quorum</name>
       <value>journalnode1:2181,journalnode2:2181,journalnode3:2181</value>
-   </property>
+  </property>
+  <property>
+      <name>dfs.nameservices</name>
+      <value>nncluster</value>
+  </property>
 </configuration>

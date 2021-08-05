@@ -18,7 +18,7 @@
 
 <configuration>
   <property>
-     <name>dfs.nameservice</name>
+     <name>dfs.nameservices</name>
      <value>nncluster</value>
    </property>
    <property>
