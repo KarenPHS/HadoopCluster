@@ -16,3 +16,4 @@ cd /home/hsuan8169/HadoopCluster/JournalNode2
 docker image build -t hsuan8169/journalnode2 .
 cd /home/hsuan8169/HadoopCluster/JournalNode3
 docker image build -t hsuan8169/journalnode3 .
+cd /home/hsuan8169/HadoopCluster

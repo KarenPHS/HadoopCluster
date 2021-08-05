@@ -39,7 +39,7 @@ RUN sed -i '30iZOO_LOG_DIR="/usr/local/zookeeper/logs"' /usr/local/zookeeper/bin
 RUN sed -i '31iZOO_LOG4J_PROP="INFO,ROLLINGFILE"' /usr/local/zookeeper/bin/zkEnv.sh
 
 # Build NN HA File
-RUN mkdir /home/hadoop/journalnode
+RUN mkdir /usr/local/hadoop/journalnode
 # Build RM HA Fiel
 RUN mkdir /usr/local/zookeeper/zoodata && echo -e $'1' > /usr/local/zookeeper/zoodata/myid
 
