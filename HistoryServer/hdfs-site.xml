@@ -23,7 +23,7 @@
    </property>
    <property>
      <name>dfs.ha.namenodes.nncluster</name>
-     <value>nn1,nn2</value>
+     <value>active-nn,standby-nn</value>
    </property>
    <property>
      <name>dfs.namenode.rpc-address.nncluster.nn1</name>
