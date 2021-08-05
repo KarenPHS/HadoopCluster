@@ -36,8 +36,7 @@ HADOOP_MAPRED_HOME=${HADOOP_HOME}\n\
 PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin\n\
 # Set Spark environment\n\
 export SPARK_HOME="/usr/local/spark"\n\
-export PATH="$SPARK_HOME/bin:$PATH"
-' >> /root/.bashrc && source /root/.bashrc
+export PATH="$SPARK_HOME/bin:$PATH"' >> /root/.bashrc && source /root/.bashrc
 
 # Set spark-env.sh
 RUN cp /usr/local/spark/conf/spark-env.sh.template /usr/local/spark/conf/spark-env.sh && \
