@@ -29,7 +29,12 @@ RUN cd /usr/local && wget -O ./zookeeper.tar.gz https://downloads.apache.org/zoo
 # Set Zookeeper
 RUN cd /usr/local/zookeeper/conf && cp zoo_sample.cfg zoo.cfg
 RUN sed -i '12s@.*@dataDir=/usr/local/zookeeper/zoodata@g' /usr/local/zookeeper/conf/zoo.cfg
-RUN echo -e $'admin.serverPort=8010\n\
+RUN echo -e $'tickTime=2000\n\
+initLimit=10\n\
+syncLimit=5\n\
+dataDir=/usr/local/zookeeper/zoodata\n\
+clientPort=2181\n\
+admin.serverPort=8010\n\
 server.1=journalnode1:2888:3888\n\
 server.2=journalnode2.example.org:2888:3888\n\
 server.3=journalnode3.example.org:2888:3888' >> /usr/local/zookeeper/conf/zoo.cfg
@@ -41,7 +46,7 @@ RUN sed -i '31iZOO_LOG4J_PROP="INFO,ROLLINGFILE"' /usr/local/zookeeper/bin/zkEnv
 # Build NN HA File
 RUN mkdir /usr/local/hadoop/journalnode
 # Build RM HA Fiel
-RUN mkdir /usr/local/zookeeper/zoodata && echo -e $'2' > /usr/local/zookeeper/zoodata/myid
+RUN mkdir /usr/local/zookeeper/zoodata && echo -e $'1' > /usr/local/zookeeper/zoodata/myid
 
 RUN echo -e $'# JAVA set environment variables\n\
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64\n\

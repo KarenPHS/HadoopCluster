@@ -1,8 +1,8 @@
 version: "3.0"
 services:
     Active_NN:
-        container_name: active_nn
-        image: hsuan8169/active_nn
+        container_name: active-nn
+        image: hsuan8169/active-nn
         user: root
         privileged: true
         networks:
@@ -13,8 +13,8 @@ services:
         command: bash -c "service ssh restart && sleep infinity"
     
     Standby_NN:
-        container_name: standby_nn
-        image: hsuan8169/active_nn
+        container_name: standby-nn
+        image: hsuan8169/active-nn
         user: root
         privileged: true
         networks:
@@ -25,8 +25,8 @@ services:
         command: bash -c "service ssh restart && sleep infinity"
 
     Active_RM:
-        container_name: active_rm
-        image: hsuan8169/active_rm
+        container_name: active-rm
+        image: hsuan8169/active-rm
         user: root
         privileged: true
         networks:
@@ -37,8 +37,8 @@ services:
         command: bash -c "service ssh restart && sleep infinity"
         
     Standby_RM:
-        container_name: standby_rm
-        image: hsuan8169/active_rm
+        container_name: standby-rm
+        image: hsuan8169/active-rm
         user: root
         privileged: true
         networks:

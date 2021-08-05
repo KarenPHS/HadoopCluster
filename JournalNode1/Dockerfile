@@ -29,7 +29,12 @@ RUN cd /usr/local && wget -O ./zookeeper.tar.gz https://downloads.apache.org/zoo
 # Set Zookeeper
 RUN cd /usr/local/zookeeper/conf && cp zoo_sample.cfg zoo.cfg
 RUN sed -i '12s@.*@dataDir=/usr/local/zookeeper/zoodata@g' /usr/local/zookeeper/conf/zoo.cfg
-RUN echo -e $'admin.serverPort=8010\n\
+RUN echo -e $'tickTime=2000\n\
+initLimit=10\n\
+syncLimit=5\n\
+dataDir=/usr/local/zookeeper/zoodata\n\
+clientPort=2181\n\
+admin.serverPort=8010\n\
 server.1=journalnode1:2888:3888\n\
 server.2=journalnode2.example.org:2888:3888\n\
 server.3=journalnode3.example.org:2888:3888' >> /usr/local/zookeeper/conf/zoo.cfg
