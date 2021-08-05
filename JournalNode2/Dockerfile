@@ -57,6 +57,8 @@ HADOOP_MAPRED_HOME=${HADOOP_HOME}\n\
 PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin\n\
 # Add Zookeeper_HOME\n\
 export ZOOKEEPER_HOME=/usr/local/zookeeper\n\
+# Add Zookeeper_CONF\n\
+export ZOOKEEPER_CONF=/usr/local/zookeeper/conf\n\
 # Add Zookeeper PATH\n\
 export PATH=$PATH:$ZOOKEEPER_HOME/bin' >> /root/.bashrc && source /root/.bashrc
 
