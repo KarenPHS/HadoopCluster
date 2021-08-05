@@ -10,7 +10,7 @@ services:
         hostname: active-nn
         ports:
             - 9870:9870
-        command: bash -c "service ssh restart && /usr/bin/yes"
+        command: bash -c "service ssh restart && sleep infinity"
     
     Standby_NN:
         container_name: standby_nn
@@ -22,7 +22,7 @@ services:
         hostname: standby-nn
         ports:
             - 9871:9870
-        command: bash -c "service ssh restart && /usr/bin/yes"
+        command: bash -c "service ssh restart && sleep infinity"
 
     Active_RM:
         container_name: active_rm
@@ -34,7 +34,7 @@ services:
         hostname: active-rm
         ports:
             - 8088:8088
-        command: bash -c "service ssh restart && /usr/bin/yes"
+        command: bash -c "service ssh restart && sleep infinity"
         
     Standby_RM:
         container_name: standby_rm
@@ -44,7 +44,7 @@ services:
         networks:
             - Hadoop_Cluster
         hostname: standby_rm
-        command: bash -c "service ssh restart && /usr/bin/yes"
+        command: bash -c "service ssh restart && sleep infinity"
         
     
     HistorySever:
@@ -57,7 +57,7 @@ services:
         hostname: historyserver
         ports:
             - 19888:19888
-        command: bash -c "service ssh restart && /usr/bin/yes"
+        command: bash -c "service ssh restart && sleep infinity"
     
     JournalNode1:
         container_name: journalnode1
@@ -69,7 +69,7 @@ services:
         hostname: journalnode1
         ports:
             - 8480:8480
-        command: bash -c "service ssh restart && /usr/bin/yes"
+        command: bash -c "service ssh restart && sleep infinity"
     
     JournalNode2:
         container_name: journalnode2
@@ -81,7 +81,7 @@ services:
         hostname: journalnode2
         ports:
             - 8481:8480
-        command: bash -c "service ssh restart && /usr/bin/yes"
+        command: bash -c "service ssh restart && sleep infinity"
     
     JournalNode3:
         container_name: journalnode3
@@ -93,7 +93,7 @@ services:
         hostname: journalnode3
         ports:
             - 8482:8480
-        command: bash -c "service ssh restart && /usr/bin/yes"
+        command: bash -c "service ssh restart && sleep infinity"
 
     Worker1:
         container_name: worker1
@@ -103,7 +103,7 @@ services:
         networks:
             - Hadoop_Cluster
         hostname: worker1
-        command: bash -c "service ssh restart && /usr/bin/yes"
+        command: bash -c "service ssh restart && sleep infinity"
 
     Worker2:
         container_name: worker2
@@ -113,7 +113,7 @@ services:
         networks:
             - Hadoop_Cluster
         hostname: worker2
-        command: bash -c "service ssh restart && /usr/bin/yes"
+        command: bash -c "service ssh restart && sleep infinity"
 
     Worker3:
         container_name: worker3
@@ -123,7 +123,7 @@ services:
         networks:
             - Hadoop_Cluster
         hostname: worker3
-        command: bash -c "service ssh restart && /usr/bin/yes"
+        command: bash -c "service ssh restart && sleep infinity"
 
     Worker4:
         container_name: worker4
@@ -133,7 +133,7 @@ services:
         networks:
             - Hadoop_Cluster
         hostname: worker4
-        command: bash -c "service ssh restart && /usr/bin/yes"
+        command: bash -c "service ssh restart && sleep infinity"
 
     Worker5:
         container_name: worker5
@@ -143,7 +143,7 @@ services:
         networks:
             - Hadoop_Cluster
         hostname: worker5
-        command: bash -c "service ssh restart && /usr/bin/yes"
+        command: bash -c "service ssh restart && sleep infinity"
 
     Worker6:
         container_name: worker6
@@ -153,7 +153,7 @@ services:
         networks:
             - Hadoop_Cluster
         hostname: worker6
-        command: bash -c "service ssh restart && /usr/bin/yes"
+        command: bash -c "service ssh restart && sleep infinity"
         
     
     Spark:
@@ -167,7 +167,7 @@ services:
         ports:
             - 8888:8888
             - 8080:8080
-        command: bash -c "service ssh restart && /usr/bin/yes"
+        command: bash -c "service ssh restart && sleep infinity"
 
 networks:
     Hadoop_Cluster:

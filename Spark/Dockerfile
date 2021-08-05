@@ -83,12 +83,13 @@ worker4\n\
 worker5\n\
 worker6' >> /usr/local/hadoop/etc/hadoop/workers
 
-# Set core-site.xml, mapred-site.xml, yarn-site.xml, hdfs-site.xml, pyspark.sh
+# Set core-site.xml, mapred-site.xml, yarn-site.xml, hdfs-site.xml, pyspark.sh, sparkcodes
 COPY ./core-site.xml /usr/local/hadoop/etc/hadoop/core-site.xml
 COPY ./mapred-site.xml /usr/local/hadoop/etc/hadoop/mapred-site.xml
 COPY ./yarn-site.xml /usr/local/hadoop/etc/hadoop/yarn-site.xml
 COPY ./hdfs-site.xml /usr/local/hadoop/etc/hadoop/hdfs-site.xml
 COPY ./pyspark.sh /usr/local/hadoop/pyspark.sh
+COPY ./sparkcodes /usr/local/hadoop/sparkcodes
 
 # Start start-dfs.sh
 RUN echo -e $'export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true -Djava.security.krb5.realm= -Djava.security.krb5.kdc="' >> /usr/local/hadoop/etc/hadoop/hadoop-env.sh
