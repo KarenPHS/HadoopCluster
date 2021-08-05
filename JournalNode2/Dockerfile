@@ -9,7 +9,7 @@ RUN apt-get update
 # Set Timezone
 RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install tcl && echo "Asia/Taipei" > /etc/timezone
 
-# First, set timezone, and then install java 
+# First, set timezone, and then install java
 RUN apt-get install -y wget openssh-server openjdk-8-jdk
 
 # Set SSH passwordless login
@@ -70,6 +70,8 @@ RUN echo -e $'export HDFS_SECONDARYNAMENODE_USER=root' >> /usr/local/hadoop/etc/
 RUN echo -e $'export HADOOP_SHELL_EXECNAME=root' >> /usr/local/hadoop/etc/hadoop/hadoop-env.sh
 RUN echo -e $'export YARN_RESOURCEMANAGER_USER=root' >> /usr/local/hadoop/etc/hadoop/hadoop-env.sh
 RUN echo -e $'export YARN_NODEMANAGER_USER=root' >> /usr/local/hadoop/etc/hadoop/hadoop-env.sh
+RUN echo -e $'export HDFS_JOURNALNODE_USER=root' >> /usr/local/hadoop/etc/hadoop/hadoop-env.sh
+RUN echo -e $'export HDFS_ZKFC_USER=root' >> /usr/local/hadoop/etc/hadoop/hadoop-env.sh
 
 # Set workers
 RUN echo -e $'worker1\n\
