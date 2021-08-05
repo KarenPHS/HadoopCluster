@@ -1,6 +1,6 @@
 version: "3.0"
 services:
-    Active_NN:
+    Active-NN:
         container_name: active-nn
         image: hsuan8169/active-nn
         user: root
@@ -12,7 +12,7 @@ services:
             - 9870:9870
         command: bash -c "service ssh restart && sleep infinity"
     
-    Standby_NN:
+    Standby-NN:
         container_name: standby-nn
         image: hsuan8169/active-nn
         user: root
@@ -24,7 +24,7 @@ services:
             - 9871:9870
         command: bash -c "service ssh restart && sleep infinity"
 
-    Active_RM:
+    Active-RM:
         container_name: active-rm
         image: hsuan8169/active-rm
         user: root
@@ -36,7 +36,7 @@ services:
             - 8088:8088
         command: bash -c "service ssh restart && sleep infinity"
         
-    Standby_RM:
+    Standby-RM:
         container_name: standby-rm
         image: hsuan8169/active-rm
         user: root
