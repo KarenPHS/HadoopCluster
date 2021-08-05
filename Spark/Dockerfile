@@ -99,4 +99,4 @@ RUN echo -e $'export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true -
 RUN rm /usr/local/hadoop.tar.gz
 RUN rm /usr/local/spark.tar.gz
 
-EXPOSE 4040 8888 8080
+EXPOSE 4040 8888 8080 7077

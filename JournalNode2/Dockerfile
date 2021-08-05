@@ -94,4 +94,4 @@ RUN echo -e $'export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true -
 RUN rm /usr/local/hadoop.tar.gz
 RUN rm /usr/local/zookeeper.tar.gz
 
-EXPOSE 22 8480
+EXPOSE 22 8480 2181 2888 3888 8010 8485

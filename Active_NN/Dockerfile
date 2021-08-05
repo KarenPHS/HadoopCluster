@@ -9,7 +9,7 @@ RUN apt-get update
 # Set Timezone
 RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install tcl && echo "Asia/Taipei" > /etc/timezone
 
-# First, set timezone, and then install java 
+# First, set timezone, and then install java
 RUN apt-get install -y wget openssh-server openjdk-8-jdk
 
 # Set SSH passwordless login
@@ -69,4 +69,4 @@ RUN echo -e $'export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true -
 # Remove downloaded hadoop file
 RUN rm /usr/local/hadoop.tar.gz
 
-EXPOSE 22 9870
+EXPOSE 22 9870 9868 8020

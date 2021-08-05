@@ -69,4 +69,4 @@ RUN echo -e $'export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true -
 # Remove downloaded hadoop file
 RUN rm /usr/local/hadoop.tar.gz
 
-EXPOSE 22 19888
+EXPOSE 22 19888 10020
