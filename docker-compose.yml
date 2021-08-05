@@ -11,6 +11,18 @@ services:
         ports:
             - 9870:9870
         command: bash -c "service ssh restart && /usr/bin/yes"
+    
+    Standby_NN:
+        container_name: standby_nn
+        image: hsuan8169/active_nn
+        user: root
+        privileged: true
+        networks:
+            - Hadoop_Cluster
+        hostname: standby-nn
+        ports:
+            - 9871:9870
+        command: bash -c "service ssh restart && /usr/bin/yes"
 
     Active_RM:
         container_name: active_rm
@@ -24,6 +36,16 @@ services:
             - 8088:8088
         command: bash -c "service ssh restart && /usr/bin/yes"
         
+    Standby_RM:
+        container_name: standby_rm
+        image: hsuan8169/active_rm
+        user: root
+        privileged: true
+        networks:
+            - Hadoop_Cluster
+        hostname: standby_rm
+        command: bash -c "service ssh restart && /usr/bin/yes"
+        
     
     HistorySever:
         container_name: historyserver
@@ -35,6 +57,42 @@ services:
         hostname: historyserver
         ports:
             - 19888:19888
+        command: bash -c "service ssh restart && /usr/bin/yes"
+    
+    JournalNode1:
+        container_name: journalnode1
+        image: hsuan8169/journalnode1
+        user: root
+        privileged: true
+        networks:
+            - Hadoop_Cluster
+        hostname: journalnode1
+        ports:
+            - 8480:8480
+        command: bash -c "service ssh restart && /usr/bin/yes"
+    
+    JournalNode2:
+        container_name: journalnode2
+        image: hsuan8169/journalnode2
+        user: root
+        privileged: true
+        networks:
+            - Hadoop_Cluster
+        hostname: journalnode2
+        ports:
+            - 8481:8480
+        command: bash -c "service ssh restart && /usr/bin/yes"
+    
+    JournalNode3:
+        container_name: journalnode3
+        image: hsuan8169/journalnode3
+        user: root
+        privileged: true
+        networks:
+            - Hadoop_Cluster
+        hostname: journalnode3
+        ports:
+            - 8482:8480
         command: bash -c "service ssh restart && /usr/bin/yes"
 
     Worker1:
@@ -96,13 +154,23 @@ services:
             - Hadoop_Cluster
         hostname: worker6
         command: bash -c "service ssh restart && /usr/bin/yes"
+        
+    
+    Spark:
+        container_name: spark
+        image: hsuan8169/spark
+        user: root
+        privileged: true
+        networks:
+            - Hadoop_Cluster
+        hostname: spark
+        ports:
+            - 8888:8888
+            - 8080:8080
+        command: bash -c "service ssh restart && /usr/bin/yes"
 
 networks:
     Hadoop_Cluster:
         driver: bridge
         
-volumes:
-    namenode1:
-    namenode2:
-    namenode3:
     

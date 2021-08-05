@@ -23,6 +23,26 @@ echo "root:hadoop" | chpasswd
 # Download  Hadoop
 RUN cd /usr/local && wget -O ./hadoop.tar.gz https://downloads.apache.org/hadoop/common/hadoop-3.3.1/hadoop-3.3.1.tar.gz && tar -xvf hadoop.tar.gz && chown root: -R /usr/local/hadoop-3.3.1 && mv hadoop-3.3.1 hadoop
 
+# Download journalnode
+RUN cd /usr/local && wget -O ./zookeeper.tar.gz https://downloads.apache.org/zookeeper/zookeeper-3.6.3/apache-zookeeper-3.6.3-bin.tar.gz && tar -xvf zookeeper.tar.gz && chown root: -R /usr/local/apache-zookeeper-3.6.3-bin && mv apache-zookeeper-3.6.3-bin zookeeper
+
+# Set Zookeeper
+RUN cd /usr/local/zookeeper/conf && cp zoo_sample.cfg zoo.cfg
+RUN sed -i '12s@.*@dataDir=/usr/local/zookeeper/zoodata@g' /usr/local/zookeeper/conf/zoo.cfg
+RUN echo -e $'admin.serverPort=8010\n\
+server.1=journalnode1:2888:3888\n\
+server.2=journalnode2.example.org:2888:3888\n\
+server.3=journalnode3.example.org:2888:3888' >> /usr/local/zookeeper/conf/zoo.cfg
+
+# Set zkEnv.sh
+RUN sed -i '30iZOO_LOG_DIR="/usr/local/zookeeper/logs"' /usr/local/zookeeper/bin/zkEnv.sh
+RUN sed -i '31iZOO_LOG4J_PROP="INFO,ROLLINGFILE"' /usr/local/zookeeper/bin/zkEnv.sh
+
+# Build NN HA File
+RUN mkdir /home/hadoop/journalnode
+# Build RM HA Fiel
+RUN mkdir /usr/local/zookeeper/zoodata && echo -e $'3' > /usr/local/zookeeper/zoodata/myid
+
 RUN echo -e $'# JAVA set environment variables\n\
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64\n\
 # Set HADOOP_HOME\n\
@@ -30,7 +50,11 @@ HADOOP_HOME=/usr/local/hadoop\n\
 # Set HADOOP_MAPRED_HOME\n\
 HADOOP_MAPRED_HOME=${HADOOP_HOME}\n\
 # Add Hadoop bin and sbin directory to PATH\n\
-PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin' >> /root/.bashrc && source /root/.bashrc
+PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin\n\
+# Add Zookeeper_HOME\n\
+export ZOOKEEPER_HOME=/usr/local/zookeeper\n\
+# Add Zookeeper PATH\n\
+export PATH=$PATH:$ZOOKEEPER_HOME/bin' >> /root/.bashrc && source /root/.bashrc
 
 # Set hadoop-env.sh
 RUN sed -i '55s@.*@JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64@g' /usr/local/hadoop/etc/hadoop/hadoop-env.sh
@@ -64,7 +88,8 @@ COPY ./hdfs-site.xml /usr/local/hadoop/etc/hadoop/hdfs-site.xml
 # Start start-dfs.sh
 RUN echo -e $'export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true -Djava.security.krb5.realm= -Djava.security.krb5.kdc="' >> /usr/local/hadoop/etc/hadoop/hadoop-env.sh
 
-# Remove downloaded hadoop file
+# Remove downloaded file
 RUN rm /usr/local/hadoop.tar.gz
+RUN rm /usr/local/zookeeper.tar.gz
 
-EXPOSE 22 19888
+EXPOSE 22 8480
