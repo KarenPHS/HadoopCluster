@@ -93,6 +93,9 @@ COPY ./hdfs-site.xml /usr/local/hadoop/etc/hadoop/hdfs-site.xml
 # Start start-dfs.sh
 RUN echo -e $'export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true -Djava.security.krb5.realm= -Djava.security.krb5.kdc="' >> /usr/local/hadoop/etc/hadoop/hadoop-env.sh
 
+# Set file for NN INFO
+RUN mkdir /home/hadoop/data
+
 # Remove downloaded file
 RUN rm /usr/local/hadoop.tar.gz
 RUN rm /usr/local/zookeeper.tar.gz
