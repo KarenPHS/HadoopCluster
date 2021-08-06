@@ -27,7 +27,7 @@ RUN cd /usr/local && wget -O ./hadoop.tar.gz https://downloads.apache.org/hadoop
 RUN cd /usr/local && wget -O ./spark.tar.gz https://downloads.apache.org/spark/spark-3.0.3/spark-3.0.3-bin-hadoop2.7.tgz && tar -xvf spark.tar.gz && chown root: -R /usr/local/spark-3.0.3-bin-hadoop2.7 && mv spark-3.0.3-bin-hadoop2.7 spark
 
 RUN echo -e $'# JAVA set environment variables\n\
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64\n\
+JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64\n\
 # Set HADOOP_HOME\n\
 HADOOP_HOME=/usr/local/hadoop\n\
 # Set HADOOP_MAPRED_HOME\n\

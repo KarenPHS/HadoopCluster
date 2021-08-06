@@ -24,7 +24,7 @@ echo "root:hadoop" | chpasswd
 RUN cd /usr/local && wget -O ./hadoop.tar.gz https://downloads.apache.org/hadoop/common/hadoop-3.3.1/hadoop-3.3.1.tar.gz && tar -xvf hadoop.tar.gz && chown root: -R /usr/local/hadoop-3.3.1 && mv hadoop-3.3.1 hadoop
 
 RUN echo -e $'# JAVA set environment variables\n\
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64\n\
+JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64\n\
 # Set HADOOP_HOME\n\
 HADOOP_HOME=/usr/local/hadoop\n\
 # Set HADOOP_MAPRED_HOME\n\

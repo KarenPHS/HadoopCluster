@@ -45,7 +45,7 @@ RUN mkdir /usr/local/hadoop/journalnode
 RUN mkdir /usr/local/zookeeper/zoodata && echo -e $'2' > /usr/local/zookeeper/zoodata/myid
 
 RUN echo -e $'# JAVA set environment variables\n\
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64\n\
+JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64\n\
 # Set HADOOP_HOME\n\
 HADOOP_HOME=/usr/local/hadoop\n\
 # Set HADOOP_MAPRED_HOME\n\
