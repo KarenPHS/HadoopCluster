@@ -69,8 +69,6 @@ services:
         hostname: journalnode1
         ports:
             - 2181:2181
-            - 8480:8480
-            - 8485:8485
         command: bash -c "tail -n +2 /etc/hosts > /etc/hosts.tmp && cp /etc/hosts.tmp /etc/hosts && service ssh restart && sleep infinity"
     
     JournalNode2:
@@ -83,8 +81,6 @@ services:
         hostname: journalnode2
         ports:
             - 2182:2181
-            - 8481:8480
-            - 8486:8485
         command: bash -c "tail -n +2 /etc/hosts > /etc/hosts.tmp && cp /etc/hosts.tmp /etc/hosts && service ssh restart && sleep infinity"
     
     JournalNode3:
@@ -97,8 +93,6 @@ services:
         hostname: journalnode3
         ports:
             - 2183:2181
-            - 8482:8480
-            - 8487:8485
         command: bash -c "tail -n +2 /etc/hosts > /etc/hosts.tmp && cp /etc/hosts.tmp /etc/hosts && service ssh restart && sleep infinity"
 
     Worker1:
