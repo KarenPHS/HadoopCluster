@@ -42,7 +42,7 @@ RUN sed -i '31iZOO_LOG4J_PROP="INFO,ROLLINGFILE"' /usr/local/zookeeper/bin/zkEnv
 # Build NN HA File
 RUN mkdir /usr/local/hadoop/journalnode
 # Build RM HA Fiel
-RUN mkdir /usr/local/zookeeper/zoodata && echo -e $'1' > /usr/local/zookeeper/zoodata/myid
+RUN mkdir /usr/local/zookeeper/zoodata && echo -e $'3' > /usr/local/zookeeper/zoodata/myid
 
 RUN echo -e $'# JAVA set environment variables\n\
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64\n\
