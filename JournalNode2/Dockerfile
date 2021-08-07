@@ -35,7 +35,7 @@ RUN sed -i '12s@.*@dataDir=/usr/local/zookeeper/zoodata@g' /usr/local/zookeeper/
 RUN sed -i '17s@#maxClientCnxns=60@maxClientCnxns=60@g' /usr/local/zookeeper/conf/zoo.cfg
 RUN echo -e $'admin.serverPort=8010\n\
 server.1=journalnode1:2888:3888\n\
-server.2=journalnode2:2888:3888\n\
+server.2=0.0.0.0:2888:3888\n\
 server.3=journalnode3:2888:3888' >> /usr/local/zookeeper/conf/zoo.cfg
 
 # Set zkEnv.sh

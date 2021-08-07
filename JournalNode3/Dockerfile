@@ -36,7 +36,7 @@ RUN sed -i '17s@#maxClientCnxns=60@maxClientCnxns=60@g' /usr/local/zookeeper/con
 RUN echo -e $'admin.serverPort=8010\n\
 server.1=journalnode1:2888:3888\n\
 server.2=journalnode2:2888:3888\n\
-server.3=journalnode3:2888:3888' >> /usr/local/zookeeper/conf/zoo.cfg
+server.3=0.0.0.0:2888:3888' >> /usr/local/zookeeper/conf/zoo.cfg
 
 # Set zkEnv.sh
 RUN sed -i '30iZOO_LOG_DIR="/usr/local/zookeeper/logs"' /usr/local/zookeeper/bin/zkEnv.sh
