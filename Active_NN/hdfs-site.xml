@@ -51,15 +51,15 @@
    </property>
    <property>
      <name>dfs.journalnode.edits.dir</name>
-     <value>/home/hadoop/journalnode</value>
+     <value>/usr/local/hadoop/data/journalnode</value>
    </property>
    <property>
      <name>dfs.namenode.name.dir</name>
-     <value>/hadoop/data/namenode</value>
+     <value>/usr/local/hadoop/data/namenode</value>
    </property>
    <property>
       <name>dfs.datanode.data.dir</name>
-      <value>/hadoop/data/datanode</value>
+      <value>/usr/local/hadoop/data/datanode</value>
    </property>
    <!--
    <property>

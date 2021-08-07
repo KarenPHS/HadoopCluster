@@ -99,7 +99,7 @@ COPY ./sparkcodes /usr/local/hadoop/sparkcodes
 RUN echo -e $'export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true -Djava.security.krb5.realm= -Djava.security.krb5.kdc="' >> /usr/local/hadoop/etc/hadoop/hadoop-env.sh
 
 # Set file for NN INFO
-RUN mkdir -p /home/hadoop/data
+RUN mkdir -p /usr/local/hadoop/data/dfs/name /usr/local/hadoop/data/journalnode /usr/local/hadoop/data/namenode /usr/local/hadoop/data/datanode
 
 # Remove downloaded file
 RUN rm /usr/local/hadoop.tar.gz

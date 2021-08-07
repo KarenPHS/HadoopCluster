@@ -19,7 +19,7 @@
 <configuration>
   <property>
       <name>hadoop.tmp.dir</name>
-      <value>/home/hadoop/data</value>
+      <value>/usr/local/hadoop/data</value>
       <description>Temporary Directory.</description>
   </property>
   <property>
