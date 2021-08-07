@@ -19,9 +19,6 @@ sed -i 's/PermitRootLogin without-password/PermitRootLogin yes /' /etc/ssh/sshd_
 echo " StrictHostKeyChecking no" >> /etc/ssh/ssh_config && \
 echo " UserKnownHostsFile /dev/null" >> /etc/ssh/ssh_config && \
 echo "root:hadoop" | chpasswd
-RUN sed -i 's@#PermitRootLogin prohibit-password@PasswordAuthentication yes@g' /etc/ssh/ssh_config
-RUN sed -i '39s@#PubkeyAuthentication yes@PubkeyAuthentication yes@g' /etc/ssh/ssh_config
-RUN sed -i '58s@#PasswordAuthentication yes@PasswordAuthentication yes@g' /etc/ssh/ssh_config
 
 # Download  Hadoop
 RUN cd /usr/local && wget -O ./hadoop.tar.gz https://downloads.apache.org/hadoop/common/hadoop-3.3.1/hadoop-3.3.1.tar.gz && tar -xvf hadoop.tar.gz && chown root: -R /usr/local/hadoop-3.3.1 && mv hadoop-3.3.1 hadoop
