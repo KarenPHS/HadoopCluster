@@ -53,6 +53,14 @@
      <name>dfs.journalnode.edits.dir</name>
      <value>/home/hadoop/journalnode</value>
    </property>
+   <property>
+     <name>dfs.namenode.name.dir</name>
+     <value>/hadoop/data/namenode</value>
+   </property>
+   <property>
+      <name>dfs.datanode.data.dir</name>
+      <value>/hadoop/data/datanode</value>
+   </property>
    <!--
    <property>
      <name>dfs.ha.fencing.methods</name>
