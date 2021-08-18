@@ -124,37 +124,7 @@ services:
             - Hadoop_Cluster
         hostname: worker3
         command: bash -c "service ssh restart && sleep infinity"
-
-    Worker4:
-        container_name: worker4
-        image: hsuan8169/workers
-        user: root
-        privileged: true
-        networks:
-            - Hadoop_Cluster
-        hostname: worker4
-        command: bash -c "service ssh restart && sleep infinity"
-
-    Worker5:
-        container_name: worker5
-        image: hsuan8169/workers
-        user: root
-        privileged: true
-        networks:
-            - Hadoop_Cluster
-        hostname: worker5
-        command: bash -c "service ssh restart && sleep infinity"
-
-    Worker6:
-        container_name: worker6
-        image: hsuan8169/workers
-        user: root
-        privileged: true
-        networks:
-            - Hadoop_Cluster
-        hostname: worker6
-        command: bash -c "service ssh restart && sleep infinity"
-        
+       
     
     Spark:
         container_name: spark

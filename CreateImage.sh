@@ -1,19 +1,33 @@
 #!/bin/bash
 
-cd /home/hsuan8169/HadoopCluster/Active_NN
+cd ./Active_NN
 docker image build -t hsuan8169/active-nn . --no-cache
-cd /home/hsuan8169/HadoopCluster/Active_RM
+cd ..
+
+cd ./Active_RM
 docker image build -t hsuan8169/active-rm . --no-cache
-cd /home/hsuan8169/HadoopCluster/HistoryServer
+cd ..
+
+cd ./HistoryServer
 docker image build -t hsuan8169/historyserver . --no-cache
-cd /home/hsuan8169/HadoopCluster/Worker1
+cd ..
+
+cd ./Worker1
 docker image build -t hsuan8169/workers . --no-cache
-cd /home/hsuan8169/HadoopCluster/Spark
+cd ..
+
+cd ./Spark
 docker image build -t hsuan8169/spark . --no-cache
-cd /home/hsuan8169/HadoopCluster/JournalNode1
+cd ..
+
+cd ./JournalNode1
 docker image build -t hsuan8169/journalnode1 . --no-cache
-cd /home/hsuan8169/HadoopCluster/JournalNode2
+cd ..
+
+cd ./JournalNode2
 docker image build -t hsuan8169/journalnode2 . --no-cache
-cd /home/hsuan8169/HadoopCluster/JournalNode3
+cd ..
+
+cd ./JournalNode3
 docker image build -t hsuan8169/journalnode3 . --no-cache
-cd /home/hsuan8169/HadoopCluster
+cd ..
