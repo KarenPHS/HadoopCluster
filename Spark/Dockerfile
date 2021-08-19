@@ -4,7 +4,7 @@ MAINTAINER Hsuan hsuan8169@gmail.com
 
 USER root
 
-RUN apt-get update
+RUN apt-get update && apt-get -y install python3-pip
 
 # Set Timezone
 RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install tcl && echo "Asia/Taipei" > /etc/timezone
@@ -14,9 +14,8 @@ RUN apt-get install -y wget openssh-server openjdk-8-jdk
 
 # Set SSH passwordless login
 RUN ssh-keygen -t rsa -f ~/.ssh/id_rsa -P '' && cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys && \
-sed -i 's/#PermitEmptyPasswords yes/PermitEmptyPasswords no /' /etc/ssh/sshd_config && \
-sed -i 's/PermitRootLogin without-password/PermitRootLogin yes /' /etc/ssh/sshd_config && \
-echo "PermitRootLogin yes" >> /etc/ssh/sshd_config && \
+sed -i 's/#PermitEmptyPasswords yes/PermitEmptyPasswords no/g' /etc/ssh/sshd_config && \
+echo " PermitRootLogin yes" >> /etc/ssh/sshd_config && \
 echo " StrictHostKeyChecking no" >> /etc/ssh/ssh_config && \
 echo " UserKnownHostsFile /dev/null" >> /etc/ssh/ssh_config && \
 echo "root:hadoop" | chpasswd
