@@ -10,7 +10,7 @@ RUN apt-get update
 RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install tcl && echo "Asia/Taipei" > /etc/timezone
 
 # First, set timezone, and then install java
-RUN apt-get install -y wget openssh-server openjdk-8-jdk
+RUN apt-get install -y apt-utils wget openssh-server openjdk-8-jdk
 
 # Set SSH passwordless login
 RUN ssh-keygen -t rsa -f ~/.ssh/id_rsa -P '' && cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys && \
