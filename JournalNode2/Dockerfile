@@ -4,7 +4,6 @@ MAINTAINER Hsuan hsuan8169@gmail.com
 
 USER root
 
-RUN apt-get install -y apt-utils
 RUN apt-get update
 
 # Set Timezone
