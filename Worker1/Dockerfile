@@ -4,18 +4,20 @@ MAINTAINER Hsuan hsuan8169@gmail.com
 
 USER root
 
+RUN apt-get install -y apt-utils
 RUN apt-get update
 
 # Set Timezone
 RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install tcl && echo "Asia/Taipei" > /etc/timezone
 
 # First, set timezone, and then install java
-RUN apt-get install -y apt-utils wget openssh-server openjdk-8-jdk
+RUN apt-get install -y wget openssh-server openjdk-8-jdk
 
 # Set SSH passwordless login
 RUN ssh-keygen -t rsa -f ~/.ssh/id_rsa -P '' && cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys && \
-sed -i 's/PermitEmptyPasswords yes/PermitEmptyPasswords no /' /etc/ssh/sshd_config && \
+sed -i 's/#PermitEmptyPasswords yes/PermitEmptyPasswords no /' /etc/ssh/sshd_config && \
 sed -i 's/PermitRootLogin without-password/PermitRootLogin yes /' /etc/ssh/sshd_config && \
+echo "PermitRootLogin yes" >> /etc/ssh/sshd_config && \
 echo " StrictHostKeyChecking no" >> /etc/ssh/ssh_config && \
 echo " UserKnownHostsFile /dev/null" >> /etc/ssh/ssh_config && \
 echo "root:hadoop" | chpasswd

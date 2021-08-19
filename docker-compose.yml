@@ -10,7 +10,7 @@ services:
         hostname: active-nn
         ports:
             - 9870:9870
-        command: bash -c "service ssh restart && /usr/bin/yes"
+        command: bash -c "service ssh restart && sleep infinity"
     
     Standby-NN:
         container_name: standby-nn
@@ -22,7 +22,7 @@ services:
         hostname: standby-nn
         ports:
             - 9871:9870
-        command: bash -c "service ssh restart && /usr/bin/yes"
+        command: bash -c "service ssh restart && sleep infinity"
 
     Active-RM:
         container_name: active-rm
@@ -34,7 +34,7 @@ services:
         hostname: active-rm
         ports:
             - 8088:8088
-        command: bash -c "service ssh restart && /usr/bin/yes"
+        command: bash -c "service ssh restart && sleep infinity"
         
     Standby-RM:
         container_name: standby-rm
