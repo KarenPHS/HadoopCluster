@@ -1,4 +1,4 @@
-FROM BasicHadoop
+FROM basichadoop
 MAINTAINER Hsuan hsuan8169@gmail.com
 
 USER root

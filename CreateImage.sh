@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd ./hadoop_basic
-docker image build -t BasicHadoop . --no-cache
+docker image build -t basichadoop . --no-cache
 cd ..
 
 cd ./Active_NN
