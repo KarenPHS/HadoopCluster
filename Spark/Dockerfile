@@ -13,12 +13,8 @@ RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install tcl && echo "Asia/Taipei
 RUN apt-get install -y wget openssh-server openjdk-8-jdk
 
 # Set SSH passwordless login
-RUN ssh-keygen -t rsa -f ~/.ssh/id_rsa -P '' && cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys && \
-sed -i 's/#PermitEmptyPasswords yes/PermitEmptyPasswords no/g' /etc/ssh/sshd_config && \
-echo " PermitRootLogin yes" >> /etc/ssh/sshd_config && \
-echo " StrictHostKeyChecking no" >> /etc/ssh/ssh_config && \
-echo " UserKnownHostsFile /dev/null" >> /etc/ssh/ssh_config && \
-echo "root:hadoop" | chpasswd
+RUN ssh-keygen -t rsa -f ~/.ssh/id_rsa -P '' && cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys
+RUN sed -i 's/#   StrictHostKeyChecking ask/StrictHostKeyChecking accept-new/' /etc/ssh/ssh_config
 
 # Download  Hadoop
 RUN cd /usr/local && wget -O ./hadoop.tar.gz https://downloads.apache.org/hadoop/common/hadoop-3.3.1/hadoop-3.3.1.tar.gz && tar -xvf hadoop.tar.gz && chown root: -R /usr/local/hadoop-3.3.1 && mv hadoop-3.3.1 hadoop
