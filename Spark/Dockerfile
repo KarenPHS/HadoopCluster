@@ -44,4 +44,7 @@ COPY ./sparkcodes /usr/local/hadoop/sparkcodes
 # Remove downloaded spark file
 RUN rm /usr/local/spark.tar.gz
 
-EXPOSE 4040 8888 8080 7077
+EXPOSE 4040
+EXPOSE 8888
+EXPOSE 8080
+EXPOSE 7077
