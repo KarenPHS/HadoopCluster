@@ -9,4 +9,4 @@ COPY ./mapred-site.xml /usr/local/hadoop/etc/hadoop/mapred-site.xml
 COPY ./yarn-site.xml /usr/local/hadoop/etc/hadoop/yarn-site.xml
 COPY ./hdfs-site.xml /usr/local/hadoop/etc/hadoop/hdfs-site.xml
 
-EXPOSE 22 8088 8030 8031 8031 8033
+EXPOSE 22 8088 8030 8031 8033
