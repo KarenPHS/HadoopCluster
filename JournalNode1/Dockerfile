@@ -40,10 +40,4 @@ COPY ./hdfs-site.xml /usr/local/hadoop/etc/hadoop/hdfs-site.xml
 # Remove downloaded zookeeper file
 RUN rm /usr/local/zookeeper.tar.gz
 
-EXPOSE 22
-EXPOSE 8480
-EXPOSE 2181
-EXPOSE 2888
-EXPOSE 3888
-EXPOSE 8010
-EXPOSE 8485
+EXPOSE 22 8480 2181 2888 3888 8010 8485
