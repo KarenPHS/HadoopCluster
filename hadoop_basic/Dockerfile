@@ -71,10 +71,6 @@ RUN echo -e $'export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true -
 # Set file for NN INFO
 RUN mkdir -p /usr/local/hadoop/data/dfs/name /usr/local/hadoop/data/journalnode /usr/local/hadoop/data/namenode /usr/local/hadoop/data/datanode
 
-# Make hive file
-RUN /usr/local/hadoop/bin/hdfs dfs -mkdir -p /tmp
-RUN /usr/local/hadoop/bin/hdfs dfs -mkdir -p /user/hive/warehouse
-
 # Remove downloaded hadoop file
 RUN rm /usr/local/hadoop.tar.gz
 

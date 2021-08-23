@@ -35,3 +35,7 @@ docker exec -i historyserver /bin/bash -c "/usr/local/hadoop/bin/mapred --daemon
 sleep 5
 # Initial Hive
 docker exec -i active-nn /bin/bash -c "/usr/local/hive/bin/schematool -initSchema -dbType derby"
+sleep 5
+# Set hive needed file# Make hive file
+docker exec -i active-nn /bin/bash -c "/usr/local/hadoop/bin/hdfs dfs -mkdir -p /tmp"
+docker exec -i active-nn /bin/bash -c "/usr/local/hadoop/bin/hdfs dfs -mkdir -p /user/hive/warehouse"
