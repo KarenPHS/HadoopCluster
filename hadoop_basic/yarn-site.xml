@@ -66,6 +66,22 @@ limitations under the License. See accompanying LICENSE file. -->
     <value>standby-rm:8088</value>
   </property>
   <property>
+    <name>yarn.resourcemanager.scheduler.address.rm1</name>
+    <value>active-rm:8030</value>
+  </property>
+  <property>
+    <name>yarn.resourcemanager.scheduler.address.rm2</name>
+    <value>standby-rm:8030</value>
+  </property>
+  <property>
+    <name>yarn.resourcemanager.resource-tracker.address.rm1</name>
+    <value>active-rm:8031</value>
+  </property>
+  <property>
+    <name>yarn.resourcemanager.resource-tracker.address.rm2</name>
+    <value>standby-rm:8031</value>
+  </property>
+  <property>
     <name>yarn.resourcemanager.address.rm1</name>
     <value>active-rm:8032</value>
   </property>
