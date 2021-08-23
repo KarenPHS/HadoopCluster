@@ -38,6 +38,12 @@ RUN sed -i '608s@.*@c.ServerApp.allow_root = True@g' /root/.jupyter/jupyter_lab_
 COPY ./pysparklab.sh /usr/local/hadoop/pysparklab.sh
 COPY ./sparkcodes /usr/local/hadoop/sparkcodes
 
+# Set $SPARK_HOME/conf env file
+COPY ./core-site.xml /usr/local/spark/conf/core-site.xml
+COPY ./mapred-site.xml /usr/local/spark/conf/mapred-site.xml
+COPY ./yarn-site.xml /usr/local/spark/conf/yarn-site.xml
+COPY ./hdfs-site.xml /usr/local/spark/conf/hdfs-site.xml
+
 # Remove downloaded spark file
 RUN rm /usr/local/spark.tar.gz
 
