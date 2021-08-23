@@ -27,7 +27,7 @@ echo -e $'spark.driver.extraJavaOptions="-Dio.netty.tryReflectionSetAccessible=t
 spark.executor.extraJavaOptions="-Dio.netty.tryReflectionSetAccessible=true"'>> /usr/local/spark/conf/spark-defaults.conf
 
 # install package
-RUN pip install jupyterlab pandas koalas pyspark
+RUN /usr/bin/pip install jupyterlab pandas koalas pyspark
 
 # Set jupyter Notebook
 RUN jupyter lab --generate-config
