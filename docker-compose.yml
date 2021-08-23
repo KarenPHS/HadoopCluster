@@ -10,6 +10,7 @@ services:
         hostname: active-nn
         ports:
             - 9870:9870
+            - 10002:10002
         expose:
             - 9868
             - 8020
