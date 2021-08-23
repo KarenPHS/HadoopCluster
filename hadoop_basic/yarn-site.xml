@@ -74,10 +74,6 @@ limitations under the License. See accompanying LICENSE file. -->
     <value>standby-rm:8032</value>
   </property>
   <property>
-    <name>yarn.nodemanager.address</name>
-    <value>worker1:45454,worker2:45454,worker3:45454</value>
-  </property>
-  <property>
     <name>yarn.resourcemanager.recovery.enabled</name>
     <value>true</value>
   </property>

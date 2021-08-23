@@ -2,7 +2,7 @@ version: "3.0"
 services:
     Active-NN:
         container_name: active-nn
-        image: basichadoop
+        image: hsuan8169/hadoopha
         user: root
         privileged: true
         networks:
@@ -18,7 +18,7 @@ services:
     
     Standby-NN:
         container_name: standby-nn
-        image: basichadoop
+        image: hsuan8169/hadoopha
         user: root
         privileged: true
         networks:
@@ -33,7 +33,7 @@ services:
 
     Active-RM:
         container_name: active-rm
-        image: basichadoop
+        image: hsuan8169/hadoopha
         user: root
         privileged: true
         networks:
@@ -50,7 +50,7 @@ services:
         
     Standby-RM:
         container_name: standby-rm
-        image: basichadoop
+        image: hsuan8169/hadoopha
         user: root
         privileged: true
         networks:
@@ -68,7 +68,7 @@ services:
     
     HistorySever:
         container_name: historyserver
-        image: basichadoop
+        image: hsuan8169/hadoopha
         user: root
         privileged: true
         networks:
@@ -136,7 +136,7 @@ services:
 
     Worker1:
         container_name: worker1
-        image: basichadoop
+        image: hsuan8169/workers
         user: root
         privileged: true
         networks:
@@ -153,7 +153,7 @@ services:
 
     Worker2:
         container_name: worker2
-        image: basichadoop
+        image: hsuan8169/workers
         user: root
         privileged: true
         networks:
@@ -170,7 +170,7 @@ services:
 
     Worker3:
         container_name: worker3
-        image: basichadoop
+        image: hsuan8169/workers
         user: root
         privileged: true
         networks:

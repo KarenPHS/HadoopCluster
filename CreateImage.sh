@@ -1,10 +1,10 @@
 #!/bin/bash
 
 cd ./hadoop_basic
-docker image build -t basichadoop . --no-cache
+docker image build -t hsuan8169/hadoopha . --no-cache
 cd ..
 
-cd ./Worker1
+cd ./Workers
 docker image build -t hsuan8169/workers . --no-cache
 cd ..
 
