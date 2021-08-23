@@ -54,10 +54,16 @@ RUN echo -e $'export YARN_NODEMANAGER_USER=root' >> /usr/local/hadoop/etc/hadoop
 RUN echo -e $'export HDFS_JOURNALNODE_USER=root' >> /usr/local/hadoop/etc/hadoop/hadoop-env.sh
 RUN echo -e $'export HDFS_ZKFC_USER=root' >> /usr/local/hadoop/etc/hadoop/hadoop-env.sh
 
-# Set workers
+# Set workers overrides original workers
 RUN echo -e $'worker1\n\
 worker2\n\
-worker3' >> /usr/local/hadoop/etc/hadoop/workers
+worker3' > /usr/local/hadoop/etc/hadoop/workers
+
+# Set core-site.xml, mapred-site.xml, yarn-site.xml, hdfs-site.xml
+COPY ./core-site.xml /usr/local/hadoop/etc/hadoop/core-site.xml
+COPY ./mapred-site.xml /usr/local/hadoop/etc/hadoop/mapred-site.xml
+COPY ./yarn-site.xml /usr/local/hadoop/etc/hadoop/yarn-site.xml
+COPY ./hdfs-site.xml /usr/local/hadoop/etc/hadoop/hdfs-site.xml
 
 # Start start-dfs.sh
 RUN echo -e $'export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true -Djava.security.krb5.realm= -Djava.security.krb5.kdc="' >> /usr/local/hadoop/etc/hadoop/hadoop-env.sh

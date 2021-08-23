@@ -27,17 +27,14 @@ echo -e $'spark.driver.extraJavaOptions="-Dio.netty.tryReflectionSetAccessible=t
 spark.executor.extraJavaOptions="-Dio.netty.tryReflectionSetAccessible=true"'>> /usr/local/spark/conf/spark-defaults.conf
 
 # install package
-RUN pip install jupyterlab pandas koalas
+RUN pip install jupyterlab pandas koalas pyspark
 
 # Set jupyter Notebook
 RUN jupyter lab --generate-config
 RUN sed -i "757s@.*@c.ServerApp.ip = '*'@g" /root/.jupyter/jupyter_lab_config.py
+RUN sed -i '608s@.*@c.ServerApp.allow_root = True@g' /root/.jupyter/jupyter_lab_config.py
 
-# Set core-site.xml, mapred-site.xml, yarn-site.xml, hdfs-site.xml, pyspark.sh, sparkcodes
-COPY ./core-site.xml /usr/local/hadoop/etc/hadoop/core-site.xml
-COPY ./mapred-site.xml /usr/local/hadoop/etc/hadoop/mapred-site.xml
-COPY ./yarn-site.xml /usr/local/hadoop/etc/hadoop/yarn-site.xml
-COPY ./hdfs-site.xml /usr/local/hadoop/etc/hadoop/hdfs-site.xml
+# Set pyspark.sh, sparkcodes
 COPY ./pysparklab.sh /usr/local/hadoop/pysparklab.sh
 COPY ./sparkcodes /usr/local/hadoop/sparkcodes
 

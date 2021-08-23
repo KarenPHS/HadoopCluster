@@ -4,18 +4,6 @@ cd ./hadoop_basic
 docker image build -t basichadoop . --no-cache
 cd ..
 
-cd ./Active_NN
-docker image build -t hsuan8169/active-nn . --no-cache
-cd ..
-
-cd ./Active_RM
-docker image build -t hsuan8169/active-rm . --no-cache
-cd ..
-
-cd ./HistoryServer
-docker image build -t hsuan8169/historyserver . --no-cache
-cd ..
-
 cd ./Worker1
 docker image build -t hsuan8169/workers . --no-cache
 cd ..

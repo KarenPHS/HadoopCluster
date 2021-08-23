@@ -31,12 +31,6 @@ export ZOOKEEPER_CONF=/usr/local/zookeeper/conf\n\
 # Add Zookeeper PATH\n\
 export PATH=$PATH:$ZOOKEEPER_HOME/bin' >> /root/.bashrc && source /root/.bashrc
 
-# Set core-site.xml, mapred-site.xml, yarn-site.xml, hdfs-site.xml
-COPY ./core-site.xml /usr/local/hadoop/etc/hadoop/core-site.xml
-COPY ./mapred-site.xml /usr/local/hadoop/etc/hadoop/mapred-site.xml
-COPY ./yarn-site.xml /usr/local/hadoop/etc/hadoop/yarn-site.xml
-COPY ./hdfs-site.xml /usr/local/hadoop/etc/hadoop/hdfs-site.xml
-
 # Remove downloaded zookeeper file
 RUN rm /usr/local/zookeeper.tar.gz
 
