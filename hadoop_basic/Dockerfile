@@ -18,6 +18,8 @@ RUN sed -i 's/#   StrictHostKeyChecking ask/StrictHostKeyChecking accept-new/' /
 
 # Download  Hadoop
 RUN cd /usr/local && wget -O ./hadoop.tar.gz https://downloads.apache.org/hadoop/common/hadoop-3.3.1/hadoop-3.3.1.tar.gz && tar -xvf hadoop.tar.gz && chown root: -R /usr/local/hadoop-3.3.1 && mv hadoop-3.3.1 hadoop
+# Download  Hive
+RUN cd /usr/local && wget -O ./hive.tar.gz https://apache.website-solution.net/hive/stable-2/apache-hive-2.3.9-bin.tar.gz && tar -xvf hive.tar.gz && chown root: -R /usr/local/apache-hive-2.3.9-bin && mv apache-hive-2.3.9-bin hive
 
 RUN echo -e $'# JAVA set environment variables\n\
 JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64\n\
@@ -26,12 +28,19 @@ HADOOP_HOME=/usr/local/hadoop\n\
 # Set HADOOP_MAPRED_HOME\n\
 HADOOP_MAPRED_HOME=${HADOOP_HOME}\n\
 # Add Hadoop bin and sbin directory to PATH\n\
-PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin' >> /root/.bashrc && source /root/.bashrc
+PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin\n\
+# Add HIVE_HOME
+export HIVE_HOME=/usr/local/hive\n\
+# Add HIVE_HOME path
+export PATH=$PATH:$HIVE_HOME/bin' >> /root/.bashrc && source /root/.bashrc
 
 # Set hadoop-env.sh
 RUN sed -i '55s@.*@export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64@g' /usr/local/hadoop/etc/hadoop/hadoop-env.sh
 RUN sed -i '59s@.*@export HADOOP_HOME=/usr/local/hadoop@g' /usr/local/hadoop/etc/hadoop/hadoop-env.sh
 RUN sed -i '69s@.*@export HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop@g' /usr/local/hadoop/etc/hadoop/hadoop-env.sh
+
+# Set $HIVE_HOME/bin/hive-config.sh
+RUN echo -e $'export HADOOP_HOME=/usr/local/hadoop' >> /usr/local/hive/bin/hive-config.sh
 
 # Set User in hadoop-env.sh
 RUN sed -i '319s@.*@export HDFS_DATANODE_SECURE_USER=root@g' /usr/local/hadoop/etc/hadoop/hadoop-env.sh
@@ -56,5 +65,12 @@ RUN echo -e $'export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true -
 # Set file for NN INFO
 RUN mkdir -p /usr/local/hadoop/data/dfs/name /usr/local/hadoop/data/journalnode /usr/local/hadoop/data/namenode /usr/local/hadoop/data/datanode
 
+# Make hive file
+RUN hdfs dfs -mkdir -p /tmp
+RUN hdfs dfs -mkdir -p /user/hive/warehouse
+
 # Remove downloaded hadoop file
 RUN rm /usr/local/hadoop.tar.gz
+
+# Remove downloaded hive file
+RUN rm /usr/local/hive.tar.gz

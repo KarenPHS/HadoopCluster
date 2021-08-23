@@ -33,3 +33,5 @@ docker exec -i active-rm /bin/bash -c "/usr/local/hadoop/sbin/start-yarn.sh"
 sleep 10
 docker exec -i historyserver /bin/bash -c "/usr/local/hadoop/bin/mapred --daemon start historyserver"
 sleep 10
+# Initial Hive
+docker exec -i active-nn /bin/bash -c "/usr/local/hive/bin/schematool -initSchema -dbType derby"
