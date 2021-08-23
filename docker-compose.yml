@@ -94,7 +94,7 @@ services:
             - 3888
             - 8010
             - 8485
-        command: bash -c "tail -n +2 /etc/hosts > /etc/hosts.tmp && cp /etc/hosts.tmp /etc/hosts && service ssh restart && sleep infinity"
+        command: bash -c "service ssh restart && sleep infinity"
     
     JournalNode2:
         container_name: journalnode2
@@ -112,7 +112,7 @@ services:
             - 3888
             - 8010
             - 8485
-        command: bash -c "tail -n +2 /etc/hosts > /etc/hosts.tmp && cp /etc/hosts.tmp /etc/hosts && service ssh restart && sleep infinity"
+        command: bash -c "service ssh restart && sleep infinity"
     
     JournalNode3:
         container_name: journalnode3
@@ -130,7 +130,7 @@ services:
             - 3888
             - 8010
             - 8485
-        command: bash -c "tail -n +2 /etc/hosts > /etc/hosts.tmp && cp /etc/hosts.tmp /etc/hosts && service ssh restart && sleep infinity"
+        command: bash -c "service ssh restart && sleep infinity"
 
     Worker1:
         container_name: worker1
