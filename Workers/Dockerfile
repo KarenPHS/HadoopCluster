@@ -1,4 +1,4 @@
-FROM basichadoop
+FROM hsuan8169/hadoopha
 MAINTAINER Hsuan hsuan8169@gmail.com
 
 USER root
