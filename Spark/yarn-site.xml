@@ -15,15 +15,15 @@ limitations under the License. See accompanying LICENSE file. -->
   </property>
   <property>
     <name>yarn.nodemanager.resource.cpu-vcores</name>
-    <value>3</value>
+    <value>1</value>
   </property>
   <property>
     <name>yarn.nodemanager.resource.memory-mb</name>
-    <value>20480</value>
+    <value>8192</value>
   </property>
   <property>
     <name>yarn.scheduler.maximum-allocation-vcores</name>
-    <value>3</value>
+    <value>1</value>
   </property>
   <property>
     <name>yarn.scheduler.minimum-allocation-mb</name>
@@ -31,7 +31,7 @@ limitations under the License. See accompanying LICENSE file. -->
   </property>
   <property>
     <name>yarn.scheduler.maximum-allocation-mb</name>
-    <value>20480</value>
+    <value>8192</value>
   </property>
   <property>
     <name>yarn.resource-types.memory-mb.increment-allocation</name>

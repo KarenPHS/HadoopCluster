@@ -47,4 +47,4 @@ COPY ./hdfs-site.xml /usr/local/spark/conf/hdfs-site.xml
 # Remove downloaded spark file
 RUN rm /usr/local/spark.tar.gz
 
-EXPOSE 4040 8888 8080 7077
+EXPOSE 4040 8888
