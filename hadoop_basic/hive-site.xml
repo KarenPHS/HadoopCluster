@@ -3844,7 +3844,7 @@
   </property>
   <property>
     <name>hive.server2.webui.host</name>
-    <value>active-rm</value>
+    <value>active-nn</value>
     <description>The host address the HiveServer2 WebUI will listen on</description>
   </property>
   <property>
