@@ -76,8 +76,12 @@ RUN echo -e $'export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true -
 # Set file for NN INFO
 RUN mkdir -p /usr/local/hadoop/data/dfs/name /usr/local/hadoop/data/journalnode /usr/local/hadoop/data/namenode /usr/local/hadoop/data/datanode
 
-# Remove downloaded hadoop file
+# Remove downloaded files
 RUN rm /usr/local/hadoop.tar.gz
-
-# Remove downloaded hive file
 RUN rm /usr/local/hive.tar.gz
+
+# Set file for Hive tmp
+RUN mkdir -p /usr/local/hive/tmp
+
+# Solve Hive multiple the same files
+RUN rm /usr/local/hive/lib/log4j-slf4j-impl-2.6.2.jar

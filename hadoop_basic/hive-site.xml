@@ -5956,4 +5956,12 @@
       See HIVE-15121 for details.
     </description>
   </property>
+  <property>
+    <name>system:java.io.tmpdir</name>
+    <value>/usr/local/hive/tmp</value>
+  </property>
+  <property>
+    <name>system:user.name</name>
+    <value>${user.name}</value>
+  </property>
 </configuration>
