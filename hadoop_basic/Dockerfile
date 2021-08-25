@@ -63,7 +63,12 @@ worker3' > /usr/local/hadoop/etc/hadoop/workers
 COPY ./core-site.xml /usr/local/hadoop/etc/hadoop/core-site.xml
 COPY ./mapred-site.xml /usr/local/hadoop/etc/hadoop/mapred-site.xml
 COPY ./yarn-site.xml /usr/local/hadoop/etc/hadoop/yarn-site.xml
+
+# Set Hive WebUI
 COPY ./hdfs-site.xml /usr/local/hadoop/etc/hadoop/hdfs-site.xml
+
+# Set hive-site
+COPY ./hive-site.xml /usr/local/hive/conf/hive-site.xml
 
 # Start start-dfs.sh
 RUN echo -e $'export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true -Djava.security.krb5.realm= -Djava.security.krb5.kdc="' >> /usr/local/hadoop/etc/hadoop/hadoop-env.sh

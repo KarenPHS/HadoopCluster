@@ -45,13 +45,17 @@ echo "Starting NN & workers and then conneting to "
 docker exec -i active-nn /bin/bash -c "/usr/local/hadoop/sbin/start-dfs.sh"
 sleep 5
 # [RM && HS start]
+echo "Starting RM..."
 docker exec -i active-rm /bin/bash -c "/usr/local/hadoop/sbin/start-yarn.sh"
 sleep 5
+echo "Starting HistoryServer..."
 docker exec -i historyserver /bin/bash -c "/usr/local/hadoop/bin/mapred --daemon start historyserver"
 sleep 5
 # Initial Hive
+echo "Initializing Hive..."
 docker exec -i active-nn /bin/bash -c "/usr/local/hive/bin/schematool -initSchema -dbType derby"
 sleep 5
 # Set hive needed file# Make hive file
+echo "Creating Hive Needed dir..."
 docker exec -i active-nn /bin/bash -c "/usr/local/hadoop/bin/hdfs dfs -mkdir -p /tmp"
 docker exec -i active-nn /bin/bash -c "/usr/local/hadoop/bin/hdfs dfs -mkdir -p /user/hive/warehouse"
