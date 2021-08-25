@@ -76,6 +76,3 @@ RUN rm /usr/local/hadoop.tar.gz
 
 # Remove downloaded hive file
 RUN rm /usr/local/hive.tar.gz
-
-# Add all WebUI ports, except for spark
-EXPOSE 22 9870 10002 8088 19888 8480 8888 4040

@@ -11,9 +11,6 @@ services:
         ports:
             - 9870:9870
             - 10002:10002
-        expose:
-            - 9868
-            - 8020
         command: bash -c "service ssh restart && sleep infinity"
     
     Standby-NN:
@@ -26,9 +23,6 @@ services:
         hostname: standby-nn
         ports:
             - 9871:9870
-        expose:
-            - 9868
-            - 8020
         command: bash -c "service ssh restart && sleep infinity"
 
     Active-RM:
@@ -41,11 +35,6 @@ services:
         hostname: active-rm
         ports:
             - 8088:8088
-        expose:
-            - 8030
-            - 8031
-            - 8032
-            - 8033
         command: bash -c "service ssh restart && sleep infinity"
         
     Standby-RM:
@@ -58,11 +47,6 @@ services:
         hostname: standby_rm
         ports:
             - 8089:8088
-        expose:
-            - 8030
-            - 8031
-            - 8032
-            - 8033
         command: bash -c "service ssh restart && sleep infinity"
         
     
@@ -76,8 +60,6 @@ services:
         hostname: historyserver
         ports:
             - 19888:19888
-        expose:
-            - 10020
         command: bash -c "service ssh restart && sleep infinity"
     
     JournalNode1:
@@ -90,12 +72,6 @@ services:
         hostname: journalnode1
         ports:
             - 8480:8480
-        expose:
-            - 2181
-            - 2888
-            - 3888
-            - 8010
-            - 8485
         command: bash -c "service ssh restart && sleep infinity"
     
     JournalNode2:
@@ -108,12 +84,6 @@ services:
         hostname: journalnode2
         ports:
             - 8481:8480
-        expose:
-            - 2181
-            - 2888
-            - 3888
-            - 8010
-            - 8485
         command: bash -c "service ssh restart && sleep infinity"
     
     JournalNode3:
@@ -126,12 +96,6 @@ services:
         hostname: journalnode3
         ports:
             - 8482:8480
-        expose:
-            - 2181
-            - 2888
-            - 3888
-            - 8010
-            - 8485
         command: bash -c "service ssh restart && sleep infinity"
 
     Worker1:
@@ -142,13 +106,6 @@ services:
         networks:
             - Hadoop_Cluster
         hostname: worker1
-        expose:
-            - 8040
-            - 8042
-            - 9864
-            - 9866
-            - 9867
-            - 45454
         command: bash -c "service ssh restart && sleep infinity"
 
     Worker2:
@@ -159,13 +116,6 @@ services:
         networks:
             - Hadoop_Cluster
         hostname: worker2
-        expose:
-            - 8040
-            - 8042
-            - 9864
-            - 9866
-            - 9867
-            - 45454
         command: bash -c "service ssh restart && sleep infinity"
 
     Worker3:
@@ -176,13 +126,6 @@ services:
         networks:
             - Hadoop_Cluster
         hostname: worker3
-        expose:
-            - 8040
-            - 8042
-            - 9864
-            - 9866
-            - 9867
-            - 45454
         command: bash -c "service ssh restart && sleep infinity"
        
     
@@ -197,8 +140,6 @@ services:
         ports:
             - 8888:8888
             - 4040:4040
-        expose:
-            - 7077
         command: bash -c "service ssh restart && sleep infinity"
 
 networks:

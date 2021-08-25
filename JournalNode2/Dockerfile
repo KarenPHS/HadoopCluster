@@ -33,5 +33,3 @@ export PATH=$PATH:$ZOOKEEPER_HOME/bin' >> /root/.bashrc && source /root/.bashrc
 
 # Remove downloaded zookeeper file
 RUN rm /usr/local/zookeeper.tar.gz
-
-EXPOSE 22 8480 2181 2888 3888 8010 8485

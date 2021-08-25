@@ -5,7 +5,7 @@ USER root
 
 RUN apt-get -y install python3-pip
 
-# Download  Spak
+# Download  Spark
 RUN cd /usr/local && wget -O ./spark.tar.gz https://downloads.apache.org/spark/spark-3.0.3/spark-3.0.3-bin-hadoop2.7.tgz && tar -xvf spark.tar.gz && chown root: -R /usr/local/spark-3.0.3-bin-hadoop2.7 && mv spark-3.0.3-bin-hadoop2.7 spark
 
 RUN echo -e $'# Set Spark environment\n\
@@ -46,5 +46,3 @@ COPY ./hdfs-site.xml /usr/local/spark/conf/hdfs-site.xml
 
 # Remove downloaded spark file
 RUN rm /usr/local/spark.tar.gz
-
-EXPOSE 4040 8888
