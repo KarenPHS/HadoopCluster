@@ -80,7 +80,7 @@ RUN mkdir -p /usr/local/hadoop/data/dfs/name /usr/local/hadoop/data/journalnode 
 RUN rm /usr/local/hadoop.tar.gz
 RUN rm /usr/local/hive.tar.gz
 
-# Set file for Hive tmp
+# Set file for Hive system:java.io.tmpdir
 RUN mkdir -p /usr/local/hive/tmp
 
 # Solve Hive multiple the same files
