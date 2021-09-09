@@ -49,3 +49,4 @@
 3. sed @@@ or sed /// => 指令用法
 4. Docker ports 跟 expose 的不同
 5. 針對 Hadoop ports 如何處理 
+6. snap install docker 可安裝docker
